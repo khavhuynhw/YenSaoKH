@@ -1,0 +1,31 @@
+# Backend
+/backend/target/
+/backend/.mvn/
+/backend/.classpath
+/backend/.project
+/backend/.settings/
+/backend/.factorypath
+/backend/HELP.md
+
+# Frontend
+/frontend/node_modules/
+/frontend/build/
+/frontend/.env
+
+# IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
