@@ -142,8 +142,7 @@ const Products = () => {
       id="products"
       style={{
         padding: "80px 0",
-        background:
-          "linear-gradient(135deg, #B8860B 0%, #D2B48C 30%, #F5DEB3 100%)",
+        background: "#F5F0E8",
         position: "relative",
       }}
     >
@@ -162,10 +161,9 @@ const Products = () => {
               level={2}
               style={{
                 fontSize: "2.5rem",
-                color: "#FFFFFF",
+                color: "#8B4513",
                 marginBottom: "16px",
                 fontWeight: "700",
-                textShadow: "0 2px 4px rgba(0,0,0,0.3)",
               }}
             >
               Bộ Sưu Tập Cao Cấp
@@ -173,7 +171,7 @@ const Products = () => {
             <Paragraph
               style={{
                 fontSize: "18px",
-                color: "rgba(255, 255, 255, 0.9)",
+                color: "#666666",
                 maxWidth: "600px",
                 margin: "0 auto",
                 lineHeight: "1.6",
@@ -236,25 +234,25 @@ const Products = () => {
                 <Card
                   hoverable
                   style={{
-                    borderRadius: "24px",
+                    borderRadius: "20px",
                     border: "none",
-                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                     overflow: "hidden",
                     background: "#FFFFFF",
                     transition: "all 0.3s ease",
-                    height: "540px",
+                    height: "520px",
                     position: "relative",
                   }}
                   bodyStyle={{ padding: "0" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-12px)";
+                    e.currentTarget.style.transform = "translateY(-8px)";
                     e.currentTarget.style.boxShadow =
-                      "0 20px 50px rgba(0, 0, 0, 0.25)";
+                      "0 12px 40px rgba(0, 0, 0, 0.15)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow =
-                      "0 8px 30px rgba(0, 0, 0, 0.15)";
+                      "0 4px 20px rgba(0, 0, 0, 0.08)";
                   }}
                 >
                   {/* Discount Badge */}
@@ -265,12 +263,11 @@ const Products = () => {
                       left: "0",
                       background: "#E53E3E",
                       color: "#FFFFFF",
-                      padding: "8px 16px",
-                      fontSize: "13px",
-                      fontWeight: "700",
-                      borderRadius: "0 0 16px 0",
+                      padding: "6px 12px",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      borderRadius: "0 0 12px 0",
                       zIndex: 3,
-                      boxShadow: "0 2px 8px rgba(229, 62, 62, 0.3)",
                     }}
                   >
                     Giảm {product.discount}
@@ -279,13 +276,12 @@ const Products = () => {
                   {/* Product Image */}
                   <div
                     style={{
-                      height: "220px",
-                      background: "#FAFAFA",
-                      margin: "20px 20px 0 20px",
-                      borderRadius: "16px",
+                      height: "200px",
+                      background: "#FFFFFF",
+                      margin: "16px 16px 0 16px",
+                      borderRadius: "0",
                       overflow: "hidden",
                       position: "relative",
-                      border: "1px solid #F0F0F0",
                     }}
                   >
                     <img
@@ -304,11 +300,11 @@ const Products = () => {
                   <div
                     style={{
                       position: "absolute",
-                      top: "200px",
-                      left: "30px",
-                      width: "42px",
-                      height: "42px",
-                      background: "#8B4513",
+                      top: "180px",
+                      left: "24px",
+                      width: "36px",
+                      height: "36px",
+                      background: "#A0522D",
                       borderRadius: "50%",
                       display: "flex",
                       alignItems: "center",
@@ -316,29 +312,28 @@ const Products = () => {
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       zIndex: 2,
-                      boxShadow: "0 4px 12px rgba(139, 69, 19, 0.3)",
                     }}
                   >
                     <ShoppingCartOutlined
                       style={{
                         color: "#FFFFFF",
-                        fontSize: "18px",
+                        fontSize: "14px",
                       }}
                     />
                   </div>
 
                   {/* Product Content */}
-                  <div style={{ padding: "24px 20px 20px 20px" }}>
+                  <div style={{ padding: "20px 16px 16px 16px" }}>
                     {/* Product Title */}
                     <Title
                       level={4}
                       style={{
                         color: "#8B4513",
                         marginBottom: "12px",
-                        fontSize: "16px",
+                        fontSize: "15px",
                         fontWeight: "600",
-                        lineHeight: "1.4",
-                        height: "44px",
+                        lineHeight: "1.3",
+                        height: "40px",
                         overflow: "hidden",
                         display: "-webkit-box",
                         WebkitLineClamp: 2,
@@ -353,7 +348,7 @@ const Products = () => {
                       <Rate
                         disabled
                         defaultValue={product.rating}
-                        style={{ fontSize: "16px", color: "#FFD700" }}
+                        style={{ fontSize: "14px", color: "#FFD700" }}
                       />
                     </div>
 
@@ -365,19 +360,19 @@ const Products = () => {
                           style={{
                             display: "flex",
                             alignItems: "flex-start",
-                            marginBottom: "6px",
-                            fontSize: "13px",
-                            color: "#555",
+                            marginBottom: "4px",
+                            fontSize: "12px",
+                            color: "#666",
                             lineHeight: "1.4",
                           }}
                         >
                           <span
                             style={{
                               color: "#E53E3E",
-                              marginRight: "8px",
-                              fontSize: "12px",
+                              marginRight: "6px",
+                              fontSize: "8px",
                               lineHeight: "1.6",
-                              fontWeight: "bold",
+                              fontWeight: "600",
                             }}
                           >
                             ♦
@@ -393,16 +388,16 @@ const Products = () => {
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: "12px",
+                          gap: "8px",
                           marginBottom: "4px",
                         }}
                       >
                         <Text
                           strong
                           style={{
-                            fontSize: "18px",
+                            fontSize: "16px",
                             color: "#E53E3E",
-                            fontWeight: "700",
+                            fontWeight: "600",
                           }}
                         >
                           {product.salePrice}
@@ -410,7 +405,7 @@ const Products = () => {
                         <Text
                           style={{
                             color: "#999",
-                            fontSize: "14px",
+                            fontSize: "13px",
                             textDecoration: "line-through",
                           }}
                         >
@@ -423,27 +418,20 @@ const Products = () => {
                     <Button
                       style={{
                         width: "100%",
-                        height: "42px",
-                        backgroundColor: "#8B4513",
+                        height: "36px",
+                        backgroundColor: "#A0522D",
                         border: "none",
-                        borderRadius: "21px",
+                        borderRadius: "18px",
                         color: "#FFFFFF",
                         fontWeight: "600",
-                        fontSize: "15px",
+                        fontSize: "14px",
                         transition: "all 0.3s ease",
-                        boxShadow: "0 3px 10px rgba(139, 69, 19, 0.3)",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = "#A0522D";
-                        e.currentTarget.style.transform = "translateY(-1px)";
-                        e.currentTarget.style.boxShadow =
-                          "0 5px 15px rgba(139, 69, 19, 0.4)";
+                        e.currentTarget.style.backgroundColor = "#8B4513";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = "#8B4513";
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow =
-                          "0 3px 10px rgba(139, 69, 19, 0.3)";
+                        e.currentTarget.style.backgroundColor = "#A0522D";
                       }}
                     >
                       Chi tiết
@@ -458,43 +446,40 @@ const Products = () => {
         {/* Custom Dots Styling */}
         <style>{`
           .ant-carousel .slick-dots {
-            bottom: -60px;
+            bottom: -50px;
           }
           .ant-carousel .slick-dots li button {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            opacity: 0.6;
-            transition: all 0.3s ease;
+            background: #D2B48C;
+            opacity: 0.4;
           }
           .ant-carousel .slick-dots li.slick-active button {
-            background: #FFFFFF;
+            background: #A0522D;
             opacity: 1;
-            transform: scale(1.2);
           }
           .ant-carousel .slick-dots li button:hover {
-            background: rgba(255, 255, 255, 0.8);
-            opacity: 0.9;
+            background: #A0522D;
+            opacity: 0.8;
           }
         `}</style>
 
         {/* View All Button */}
-        <div style={{ textAlign: "center", marginTop: "80px" }}>
+        <div style={{ textAlign: "center", marginTop: "70px" }}>
           <Button
             type="primary"
             size="large"
             style={{
-              height: "52px",
-              padding: "0 36px",
+              height: "48px",
+              padding: "0 32px",
               fontSize: "16px",
               fontWeight: "600",
-              borderRadius: "26px",
-              background: "linear-gradient(135deg, #FFFFFF, #F8F8F8)",
-              border: "2px solid rgba(255, 255, 255, 0.3)",
-              color: "#8B4513",
-              boxShadow: "0 6px 20px rgba(255, 255, 255, 0.3)",
-              backdropFilter: "blur(10px)",
+              borderRadius: "24px",
+              background: "linear-gradient(135deg, #A0522D, #D2B48C)",
+              border: "none",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 16px rgba(160, 82, 45, 0.3)",
             }}
           >
             Xem Tất Cả Sản Phẩm
