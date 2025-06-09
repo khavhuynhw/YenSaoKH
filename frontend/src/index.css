@@ -6,6 +6,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ant Design CSS */
+@import "~antd/dist/reset.css";
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -13,33 +16,48 @@
 
   body {
     font-family: "Inter", system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary-gold to-accent-light-gold text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl;
-  }
+/* Custom styles that work with Ant Design */
+.gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%);
+}
 
-  .btn-secondary {
-    @apply bg-transparent text-text-dark px-8 py-4 border-2 border-gray-200 rounded-full font-semibold text-lg transition-all duration-300 hover:border-primary-gold hover:text-primary-gold;
-  }
+.gradient-blue {
+  background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+}
 
-  .section-title {
-    @apply text-4xl font-bold text-primary-dark mb-4;
-  }
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  .section-subtitle {
-    @apply text-xl text-text-light max-w-2xl mx-auto;
-  }
+/* Override Ant Design components when needed */
+.ant-layout-header {
+  height: auto !important;
+  line-height: normal !important;
+}
 
-  .card-hover {
-    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl;
-  }
+.ant-menu-horizontal {
+  border-bottom: none !important;
+}
+
+.ant-card-hoverable:hover {
+  transform: translateY(-8px);
+  transition: all 0.3s ease;
 }
 
 /* Custom animations */
-@keyframes pulse {
+@keyframes pulse-glow {
   0%,
   100% {
     transform: scale(1);
@@ -51,6 +69,6 @@
   }
 }
 
-.animate-pulse-slow {
-  animation: pulse 3s ease-in-out infinite;
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }

@@ -25,20 +25,50 @@ const Header = () => {
 
   return (
     <AntHeader
-      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg px-0"
-      style={{ height: "auto", lineHeight: "normal" }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: "#ffffff",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+        height: "auto",
+        lineHeight: "normal",
+        padding: 0,
+      }}
     >
-      <div className="max-w-6xl mx-auto px-5 py-4">
-        <div className="flex items-center justify-between">
+      <div
+        style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px" }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           {/* Logo */}
-          <div className="logo">
+          <div>
             <h2
-              className="text-3xl font-bold leading-tight m-0"
-              style={{ color: "#d4af37" }}
+              style={{
+                color: "#d4af37",
+                fontSize: "1.8rem",
+                fontWeight: "bold",
+                lineHeight: "1.2",
+                margin: 0,
+                marginBottom: "-4px",
+              }}
             >
               PureNest
             </h2>
-            <span className="text-sm font-normal text-gray-500">
+            <span
+              style={{
+                fontSize: "0.85rem",
+                fontWeight: "normal",
+                color: "#666666",
+              }}
+            >
               Premium Bird's Nest
             </span>
           </div>
@@ -48,12 +78,21 @@ const Header = () => {
             mode="horizontal"
             items={menuItems}
             onClick={handleMenuClick}
-            className="hidden md:flex border-none bg-transparent flex-1 justify-center"
-            style={{ fontSize: "16px", fontWeight: 500 }}
+            style={{
+              display: "none",
+              "@media (min-width: 768px)": { display: "flex" },
+              border: "none",
+              background: "transparent",
+              flex: 1,
+              justifyContent: "center",
+              fontSize: "16px",
+              fontWeight: 500,
+            }}
+            className="desktop-menu"
           />
 
           {/* Header Actions */}
-          <div className="flex items-center gap-4">
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             {/* Cart Button */}
             <Badge count={0} showZero>
               <Button
@@ -61,14 +100,14 @@ const Header = () => {
                 shape="round"
                 icon={<ShoppingCartOutlined />}
                 size="large"
-                className="flex items-center"
                 style={{
                   background:
                     "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
                   border: "none",
                   height: "48px",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
+                  padding: "0 20px",
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
                 Cart
@@ -80,7 +119,8 @@ const Header = () => {
               type="text"
               icon={<MenuOutlined />}
               size="large"
-              className="md:hidden"
+              style={{ display: "block" }}
+              className="mobile-menu-btn"
               onClick={() => setDrawerVisible(true)}
             />
           </div>
@@ -102,6 +142,20 @@ const Header = () => {
           style={{ border: "none" }}
         />
       </Drawer>
+
+      <style jsx>{`
+        .desktop-menu {
+          display: none;
+        }
+        @media (min-width: 768px) {
+          .desktop-menu {
+            display: flex !important;
+          }
+          .mobile-menu-btn {
+            display: none !important;
+          }
+        }
+      `}</style>
     </AntHeader>
   );
 };
