@@ -468,23 +468,25 @@ const Products = () => {
 
         {/* View All Button */}
         <div style={{ textAlign: "center", marginTop: "70px" }}>
-          <Button
-            type="primary"
-            size="large"
-            style={{
-              height: "48px",
-              padding: "0 32px",
-              fontSize: "16px",
-              fontWeight: "600",
-              borderRadius: "24px",
-              background: "linear-gradient(135deg, #A0522D, #D2B48C)",
-              border: "none",
-              color: "#FFFFFF",
-              boxShadow: "0 4px 16px rgba(160, 82, 45, 0.3)",
-            }}
-          >
-            Xem Tất Cả Sản Phẩm
-          </Button>
+          <Link to="/san-pham">
+            <Button
+              type="primary"
+              size="large"
+              style={{
+                height: "48px",
+                padding: "0 32px",
+                fontSize: "16px",
+                fontWeight: "600",
+                borderRadius: "24px",
+                background: "linear-gradient(135deg, #A0522D, #D2B48C)",
+                border: "none",
+                color: "#FFFFFF",
+                boxShadow: "0 4px 16px rgba(160, 82, 45, 0.3)",
+              }}
+            >
+              Xem Tất Cả Sản Phẩm
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
