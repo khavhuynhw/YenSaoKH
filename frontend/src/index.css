@@ -1,53 +1,56 @@
 /* Import Google Fonts for luxury typography */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-:root {
-  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  font-weight: 400;
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light;
-  color: #2c2c2c;
-  background-color: #ffffff;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-gold to-accent-light-gold text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-text-dark px-8 py-4 border-2 border-gray-200 rounded-full font-semibold text-lg transition-all duration-300 hover:border-primary-gold hover:text-primary-gold;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-primary-dark mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-text-light max-w-2xl mx-auto;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl;
+  }
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #ffffff;
-  color: #2c2c2c;
+/* Custom animations */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
 }
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Accessibility improvements */
-*:focus {
-  outline: 2px solid #d4af37;
-  outline-offset: 2px;
-}
-
-/* Remove focus outline for mouse users */
-.js-focus-visible *:focus:not(.focus-visible) {
-  outline: none;
-}
-
-/* Improve text selection */
-::selection {
-  background-color: #d4af37;
-  color: #ffffff;
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
 }
