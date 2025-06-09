@@ -1,17 +1,9 @@
 import { ConfigProvider, Layout } from "antd";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Products from "./components/Products";
-import Benefits from "./components/Benefits";
-import AboutUs from "./components/AboutUs";
-import HowItWorks from "./components/HowItWorks";
-import Certificates from "./components/Certificates";
-import Testimonials from "./components/Testimonials";
-import FAQ from "./components/FAQ";
-import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
-import ScrollAnimations from "./components/ScrollAnimations";
-import AnimationWrapper from "./components/AnimationWrapper";
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
 
 const { Content } = Layout;
 
@@ -40,43 +32,29 @@ function App() {
         horizontalItemSelectedColor: "#d4af37",
         horizontalItemHoverColor: "#d4af37",
       },
+      Pagination: {
+        itemActiveBg: "#A0522D",
+        itemLinkBg: "#ffffff",
+        itemInputBg: "#ffffff",
+      },
     },
   };
 
   return (
     <ConfigProvider theme={theme}>
-      <Layout style={{ minHeight: "100vh" }}>
-        <Header />
-        <Content>
-          <ScrollAnimations />
-          <Hero />
-          <AnimationWrapper animation="fadeIn" delay={0.2}>
-            <Products />
-          </AnimationWrapper>
-          <AnimationWrapper animation="slideUp" delay={0.1}>
-            <Benefits />
-          </AnimationWrapper>
-          <AnimationWrapper animation="slideLeft" delay={0.2}>
-            <AboutUs />
-          </AnimationWrapper>
-          <AnimationWrapper animation="fadeIn" delay={0.1}>
-            <HowItWorks />
-          </AnimationWrapper>
-          <AnimationWrapper animation="slideUp" delay={0.2}>
-            <Certificates />
-          </AnimationWrapper>
-          <AnimationWrapper animation="slideRight" delay={0.1}>
-            <Testimonials />
-          </AnimationWrapper>
-          <AnimationWrapper animation="fadeIn" delay={0.2}>
-            <FAQ />
-          </AnimationWrapper>
-          <AnimationWrapper animation="scaleIn" delay={0.1}>
-            <CallToAction />
-          </AnimationWrapper>
-        </Content>
-        <Footer />
-      </Layout>
+      <Router>
+        <Layout style={{ minHeight: "100vh" }}>
+          <Header />
+          <Content>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/san-pham" element={<ProductsPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+            </Routes>
+          </Content>
+          <Footer />
+        </Layout>
+      </Router>
     </ConfigProvider>
   );
 }
