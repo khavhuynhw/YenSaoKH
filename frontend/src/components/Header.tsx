@@ -53,7 +53,7 @@ const Header = () => {
             alignItems: "center",
             display: "flex",
             justifyContent: "space-between",
-            maxWidth: "1170px",
+            maxWidth: "1400px", // Increased max-width to accommodate all nav items
             width: "100%",
             paddingLeft: "15px",
             paddingRight: "15px",
@@ -65,7 +65,8 @@ const Header = () => {
               lineHeight: "16px",
               marginRight: "30px",
               maxHeight: "100%",
-              width: "328px",
+              minWidth: "250px", // Ensure logo doesn't shrink too much
+              flexShrink: 0, // Prevent logo from shrinking
             }}
           >
             <a
@@ -85,7 +86,6 @@ const Header = () => {
                 handleMenuClick("#home");
               }}
             >
-              {/* Logo Image Placeholder - You can replace with actual image */}
               <div
                 style={{
                   maxHeight: "60px",
@@ -93,16 +93,16 @@ const Header = () => {
                   display: "flex",
                   alignItems: "center",
                   color: "#d4af37",
-                  fontSize: "28px",
+                  fontSize: "24px", // Slightly smaller to save space
                   fontWeight: 700,
                 }}
               >
                 PureNest
                 <span
                   style={{
-                    fontSize: "12px",
+                    fontSize: "11px",
                     color: "#666",
-                    marginLeft: "8px",
+                    marginLeft: "6px",
                     textTransform: "none",
                     fontWeight: 400,
                   }}
@@ -113,12 +113,12 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Navigation Menu */}
+          {/* Navigation Menu - All items in one line */}
           <div
             style={{
-              flexBasis: "0%",
-              flexGrow: 1,
-              marginRight: "auto",
+              flex: "1", // Take available space
+              display: "flex",
+              justifyContent: "center", // Center the navigation
               maxHeight: "100%",
             }}
           >
@@ -126,15 +126,14 @@ const Header = () => {
               style={{
                 alignItems: "center",
                 display: "flex",
-                flexFlow: "row wrap",
-                flexWrap: "wrap",
-                justifyContent: "flex-start",
+                flexWrap: "nowrap", // Prevent wrapping - keep all items in one line
+                justifyContent: "center",
                 position: "relative",
-                width: "100%",
                 listStyle: "none",
                 margin: 0,
                 padding: 0,
-                gap: "14px",
+                gap: "8px", // Reduced gap to fit more items
+                whiteSpace: "nowrap", // Prevent text wrapping
               }}
               className="desktop-menu"
             >
@@ -142,12 +141,13 @@ const Header = () => {
                 <li
                   key={item.key}
                   style={{
-                    marginLeft: "7px",
-                    marginRight: "7px",
+                    marginLeft: "4px", // Reduced margins
+                    marginRight: "4px",
                     position: "relative",
                     textAlign: "left",
                     transitionDuration: "0.3s",
                     transitionProperty: "background-color",
+                    flexShrink: 0, // Prevent items from shrinking
                   }}
                 >
                   <a
@@ -159,29 +159,34 @@ const Header = () => {
                         : "rgba(102, 102, 102, 0.85)",
                       cursor: "pointer",
                       display: "inline-flex",
-                      flexFlow: "row wrap",
-                      flexWrap: "wrap",
                       fontFamily: "Inter, sans-serif",
-                      fontSize: "15px",
-                      letterSpacing: "0.3px",
+                      fontSize: "14px", // Slightly smaller font
+                      letterSpacing: "0.2px",
                       lineHeight: "16px",
-                      paddingLeft: "5px",
-                      paddingRight: "5px",
-                      textAlign: "left",
+                      paddingLeft: "8px", // Increased padding for better click area
+                      paddingRight: "8px",
+                      paddingTop: "4px",
+                      paddingBottom: "4px",
+                      textAlign: "center",
                       textDecoration: "none",
                       touchAction: "manipulation",
                       transitionDuration: "0.2s",
                       fontWeight: item.active ? 600 : 400,
+                      whiteSpace: "nowrap", // Prevent text wrapping
+                      borderRadius: "4px", // Add subtle border radius
                     }}
                     onMouseEnter={(e) => {
                       if (!item.active) {
                         e.currentTarget.style.color = "rgb(195, 165, 122)";
+                        e.currentTarget.style.backgroundColor =
+                          "rgba(195, 165, 122, 0.1)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!item.active) {
                         e.currentTarget.style.color =
                           "rgba(102, 102, 102, 0.85)";
+                        e.currentTarget.style.backgroundColor = "transparent";
                       }
                     }}
                     onClick={(e) => {
@@ -199,104 +204,78 @@ const Header = () => {
           {/* Cart Button */}
           <div
             style={{
-              marginLeft: "auto",
+              marginLeft: "20px",
               maxHeight: "100%",
+              flexShrink: 0, // Prevent cart from shrinking
             }}
           >
-            <ul
+            <div
               style={{
-                alignItems: "center",
-                display: "flex",
-                flexFlow: "row wrap",
-                flexWrap: "wrap",
-                justifyContent: "flex-end",
-                position: "relative",
-                width: "100%",
-                listStyle: "none",
-                margin: 0,
-                padding: 0,
+                display: "inline-block",
+                textAlign: "left",
               }}
             >
-              <li
+              <a
+                title="Giỏ hàng"
+                href="#cart"
                 style={{
-                  marginLeft: "7px",
+                  backgroundColor: "rgb(195, 165, 122)",
+                  borderRadius: "999px",
+                  border: "0.8px solid rgba(0, 0, 0, 0.05)",
+                  color: "rgb(255, 255, 255)",
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  minHeight: "40px",
+                  minWidth: "40px",
+                  padding: "8px",
                   position: "relative",
-                  textAlign: "left",
-                  transitionDuration: "0.3s",
-                  transitionProperty: "background-color",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  touchAction: "manipulation",
+                  transition: "all 0.3s ease",
+                  verticalAlign: "middle",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgb(175, 145, 102)";
+                  e.currentTarget.style.transform = "scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "rgb(195, 165, 122)";
+                  e.currentTarget.style.transform = "scale(1)";
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Handle cart click
                 }}
               >
-                <div
+                <ShoppingCartOutlined style={{ fontSize: "18px" }} />
+                {/* Cart count badge */}
+                <span
                   style={{
-                    display: "inline-block",
-                    textAlign: "left",
+                    position: "absolute",
+                    top: "-8px",
+                    right: "-8px",
+                    backgroundColor: "#ff4d4f",
+                    borderRadius: "50%",
+                    color: "white",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    minWidth: "18px",
+                    height: "18px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    border: "2px solid white",
                   }}
                 >
-                  <a
-                    title="Giỏ hàng"
-                    href="#cart"
-                    style={{
-                      backgroundColor: "rgb(195, 165, 122)",
-                      borderRadius: "999px",
-                      border: "0.8px solid rgba(0, 0, 0, 0.05)",
-                      color: "rgb(255, 255, 255)",
-                      cursor: "pointer",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "16px",
-                      fontWeight: 700,
-                      minHeight: "40px",
-                      minWidth: "40px",
-                      padding: "8px",
-                      position: "relative",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      touchAction: "manipulation",
-                      transition: "all 0.3s ease",
-                      verticalAlign: "middle",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor =
-                        "rgb(175, 145, 102)";
-                      e.currentTarget.style.transform = "scale(1.05)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor =
-                        "rgb(195, 165, 122)";
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      // Handle cart click
-                    }}
-                  >
-                    <ShoppingCartOutlined style={{ fontSize: "18px" }} />
-                    {/* Cart count badge */}
-                    <span
-                      style={{
-                        position: "absolute",
-                        top: "-8px",
-                        right: "-8px",
-                        backgroundColor: "#ff4d4f",
-                        borderRadius: "50%",
-                        color: "white",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        minWidth: "18px",
-                        height: "18px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        border: "2px solid white",
-                      }}
-                    >
-                      0
-                    </span>
-                  </a>
-                </div>
-              </li>
-            </ul>
+                  0
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -371,10 +350,10 @@ const Header = () => {
 
       <style jsx>{`
         .desktop-menu {
-          display: flex;
+          display: flex !important;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
           .desktop-menu {
             display: none !important;
           }
@@ -383,10 +362,19 @@ const Header = () => {
           }
         }
 
-        @media (min-width: 769px) {
+        @media (min-width: 1201px) {
           .mobile-menu-section {
             display: none !important;
           }
+        }
+
+        /* Ensure navigation items don't break into multiple lines */
+        .desktop-menu li {
+          flex-shrink: 0 !important;
+        }
+
+        .desktop-menu a {
+          white-space: nowrap !important;
         }
       `}</style>
     </>
