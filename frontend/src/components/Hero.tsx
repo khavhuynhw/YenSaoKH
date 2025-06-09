@@ -5,10 +5,14 @@ import {
   PlayCircleOutlined,
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
+import AnimationWrapper from "./AnimationWrapper";
+import { useParallax } from "../hooks/useScrollAnimation";
 
 const { Title, Paragraph } = Typography;
 
 const Hero = () => {
+  const parallaxY = useParallax(0.3);
+
   return (
     <>
       {/* Add CSS animations */}
@@ -21,7 +25,7 @@ const Hero = () => {
             opacity: 0.4;
           }
         }
-        
+
         @keyframes float1 {
           0%, 100% {
             transform: translateY(0px) rotate(-5deg);
@@ -30,7 +34,7 @@ const Hero = () => {
             transform: translateY(-10px) rotate(-5deg);
           }
         }
-        
+
         @keyframes float2 {
           0%, 100% {
             transform: translateY(0px) rotate(8deg);
@@ -39,7 +43,7 @@ const Hero = () => {
             transform: translateY(-8px) rotate(8deg);
           }
         }
-        
+
         @keyframes float3 {
           0%, 100% {
             transform: translateY(0px) rotate(-3deg);
@@ -48,45 +52,64 @@ const Hero = () => {
             transform: translateY(-12px) rotate(-3deg);
           }
         }
-        
+
         .float1 {
           animation: float1 7s ease-in-out infinite;
         }
-        
+
         .float2 {
           animation: float2 8s ease-in-out infinite;
         }
-        
+
         .float3 {
           animation: float3 6s ease-in-out infinite;
         }
-        
+
         .pulse-glow {
           animation: pulse 3s ease infinite;
         }
       `}</style>
 
       <section
-        id="home"
         style={{
-          background: "linear-gradient(135deg, #f7f3ee 0%, #ffffff 100%)",
-          paddingTop: "100px", // Account for fixed header
-          paddingBottom: "60px",
-          position: "relative",
-          overflow: "hidden",
           minHeight: "100vh",
+          background: "linear-gradient(135deg, #f8f6f0 0%, #ffffff 100%)",
           display: "flex",
           alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+          paddingTop: "80px",
+        }}
+      >
         }}
       >
         {/* Full width container */}
         <div style={{ width: "100%", position: "relative" }}>
           {/* Content container with max width */}
           <div
-            style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}
-          >
-            {/* Horizontal Layout - Two columns side by side */}
-            <div
+        <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 20px", zIndex: 10, position: "relative" }}>
+          <div style={{ display: "flex", alignItems: "center", minHeight: "calc(100vh - 160px)" }}>
+            {/* Right Content - Product Showcase */}
+            <AnimationWrapper animation="scaleIn" delay={0.8}>
+              <div style={{ flex: "1", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <div
+                  style={{
+                    position: "relative",
+                    width: "500px",
+                    height: "500px",
+                  }}
+                >
+                      borderRadius: "25px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Yến Sào Cao Cấp
+                  </span>
+                </div>
+              </AnimationWrapper>
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -151,19 +174,20 @@ const Hero = () => {
                 </Title>
 
                 {/* Description */}
+              <AnimationWrapper animation="slideUp" delay={0.6}>
                 <Paragraph
                   style={{
-                    fontSize: "1.2rem",
-                    color: "#666666",
-                    lineHeight: "1.7",
+                    fontSize: "1.3rem",
+                    color: "#5a5a5a",
                     marginBottom: "32px",
-                    maxWidth: "520px",
+                    lineHeight: "1.6",
+                    maxWidth: "600px",
                   }}
                 >
-                  Trải nghiệm bí quyết cổ xưa về vẻ đẹp và sức khỏe với yến sào
-                  ăn được cao cấp của chúng tôi. Tự nhiên giàu collagen, protein
-                  và axit amin thiết yếu cho làn da rạng rỡ và sức sống dồi dào.
+                  Sản phẩm yến sào nguyên chất từ Indonesia, được chế biến theo
+                  công nghệ hiện đại, mang lại sức khỏe và sắc đẹp tự nhiên.
                 </Paragraph>
+              </AnimationWrapper>
 
                 {/* Feature Points */}
                 <div style={{ marginBottom: "40px" }}>
