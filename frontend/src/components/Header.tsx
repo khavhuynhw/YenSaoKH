@@ -27,11 +27,14 @@ const Header = () => {
     <>
       <AntHeader
         style={{
-          // Glassmorphism styling from Builder.io example
+          // Glassmorphism styling with warm cream colors to match website
           alignItems: "center",
           backdropFilter: "blur(16px)",
-          backgroundColor: "rgba(25, 25, 25, 0.32)",
+          backgroundColor: "rgba(250, 248, 243, 0.85)", // Warm cream with high opacity
           borderRadius: "8px",
+          border: "1px solid rgba(212, 175, 55, 0.2)", // Subtle gold border
+          boxShadow:
+            "0 8px 32px rgba(212, 175, 55, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05)", // Warm shadow
           display: "flex",
           justifyContent: "space-between",
           left: "12px",
@@ -44,7 +47,7 @@ const Header = () => {
           right: "12px",
           top: "12px",
           transitionDuration: "0.3s",
-          transitionProperty: "background-color",
+          transitionProperty: "background-color, border-color",
           width: "calc(100% - 24px)",
           zIndex: 21,
           height: "auto",
@@ -80,7 +83,7 @@ const Header = () => {
               style={{
                 fontSize: "0.85rem",
                 fontWeight: "normal",
-                color: "rgba(255, 255, 255, 0.7)",
+                color: "#666666", // Darker text for better contrast on light background
               }}
             >
               Premium Bird's Nest
@@ -107,24 +110,27 @@ const Header = () => {
                 style={{
                   alignItems: "center",
                   borderRadius: "10px",
-                  color: "rgba(255, 255, 255, 0.8)",
+                  color: "#2c2c2c", // Dark text for contrast on light background
                   cursor: "pointer",
                   display: "flex",
                   fontFamily: "Inter, sans-serif",
                   fontSize: "14px",
-                  fontWeight: 400,
+                  fontWeight: 500,
                   gap: "8px",
                   height: "100%",
                   padding: "8px 16px",
                   position: "relative",
                   textDecoration: "none",
-                  transition: "color 0.3s ease",
+                  transition: "color 0.3s ease, background-color 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "#d4af37";
+                  e.currentTarget.style.backgroundColor =
+                    "rgba(212, 175, 55, 0.1)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "rgba(255, 255, 255, 0.8)";
+                  e.currentTarget.style.color = "#2c2c2c";
+                  e.currentTarget.style.backgroundColor = "transparent";
                 }}
                 onClick={(e) => {
                   e.preventDefault();
@@ -157,6 +163,7 @@ const Header = () => {
                   alignItems: "center",
                   color: "#ffffff",
                   fontWeight: 600,
+                  boxShadow: "0 4px 12px rgba(212, 175, 55, 0.3)",
                 }}
               >
                 Cart
@@ -170,8 +177,9 @@ const Header = () => {
               size="large"
               className="mobile-menu-btn"
               style={{
-                color: "rgba(255, 255, 255, 0.8)",
+                color: "#2c2c2c", // Dark icon for contrast
                 border: "none",
+                backgroundColor: "transparent",
               }}
               onClick={() => setDrawerVisible(true)}
             />
@@ -190,7 +198,10 @@ const Header = () => {
           open={drawerVisible}
           width={300}
           styles={{
-            body: { padding: "24px 0" },
+            body: {
+              padding: "24px 0",
+              background: "linear-gradient(135deg, #faf8f3 0%, #ffffff 100%)",
+            },
           }}
         >
           <Menu
@@ -200,6 +211,7 @@ const Header = () => {
             style={{
               border: "none",
               fontSize: "16px",
+              background: "transparent",
             }}
           />
         </Drawer>
@@ -216,6 +228,12 @@ const Header = () => {
           .mobile-menu-btn {
             display: none !important;
           }
+        }
+
+        /* Enhanced glassmorphism on scroll */
+        .ant-layout-header:hover {
+          background-color: rgba(250, 248, 243, 0.95) !important;
+          border-color: rgba(212, 175, 55, 0.3) !important;
         }
 
         /* Add some breathing room for the transparent header */
