@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Typography, Carousel, Card, Button, Rate } from "antd";
+import { Typography, Carousel, Card, Button, Rate } from "antd";
 import {
   LeftOutlined,
   RightOutlined,
@@ -17,22 +17,22 @@ const Products = () => {
       id: 1,
       name: "Set yến chưng tươi hộp vương",
       image:
-        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop&crop=center",
       rating: 4,
       discount: "15%",
       originalPrice: "800.000 đ",
       salePrice: "680.000 đ",
       details: [
-        "Thành phần: 6 hũ yến chưng tươi 80ml",
-        "Hàm lượng yến mỗi hũ: Chiếm 60% mỗi hũ",
-        "Hướng dẫn sử dụng: Bật nắp sử dụng ngay",
+        "Thành phần: 6 hũ yến chưng tươi 80ml...",
+        "Hàm lượng yến mỗi hũ: Chiếm 60% mỗ...",
+        "Hướng dẫn sử dụng: Bật nắp sử dụng...",
       ],
     },
     {
       id: 2,
       name: "Set hộp ngăn kéo 10 hũ yến chưng sẵn",
       image:
-        "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&h=200&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=250&fit=crop&crop=center",
       rating: 4,
       discount: "9%",
       originalPrice: "1.220.000 đ",
@@ -40,44 +40,44 @@ const Products = () => {
       details: [
         "Thành phần: 10 hũ yến chưng sẵn mix vị",
         "Hạn sử dụng: 12 tháng",
-        "Hướng dẫn sử dụng: Bật nắp sử dụng ngay",
+        "Hướng dẫn sử dụng: Bật nắp sử dụng...",
       ],
     },
     {
       id: 3,
       name: "Set quà tặng yến chưng tươi hộp vali",
       image:
-        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=250&fit=crop&crop=center",
       rating: 4,
       discount: "12%",
       originalPrice: "2.050.000 đ",
       salePrice: "1.150.000 đ",
       details: [
-        "Tùy chọn: Set 10 hũ 80ml / Set 8 hũ 120ml",
-        "Thành phần: Yến sào thiên nhiên",
-        "Hàm lượng yến mỗi hũ: Chiếm 60% mỗi hũ",
+        "Tùy chọn: Set 10 hũ 80ml / Set 8 hũ...",
+        "Thành phần: Yến sào thiên nhiên...",
+        "Hàm lượng yến mỗi hũ: Chiếm 60% mỗ...",
       ],
     },
     {
       id: 4,
       name: "Yến chưng sẵn Nhân sâm",
       image:
-        "https://images.unsplash.com/photo-1560472355-536de3962603?w=300&h=200&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=250&fit=crop&crop=center",
       rating: 4,
       discount: "10%",
       originalPrice: "550.000 đ",
       salePrice: "72.000 đ",
       details: [
-        "Quy cách đóng gói: Đóng trong hũ thủy tinh",
+        "Quy cách đóng gói: Đóng trong hũ thủy...",
         "Hạn sử dụng: 12 tháng",
-        "Hướng dẫn sử dụng: Bật nắp sử dụng ngay",
+        "Hướng dẫn sử dụng: Bật nắp sử dụng...",
       ],
     },
     {
       id: 5,
       name: "Set yến chưng cao cấp hộp gỗ",
       image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&crop=center",
       rating: 5,
       discount: "8%",
       originalPrice: "3.200.000 đ",
@@ -92,7 +92,7 @@ const Products = () => {
       id: 6,
       name: "Combo yến sào gia đình 6 tháng",
       image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop&crop=center",
       rating: 4,
       discount: "20%",
       originalPrice: "4.800.000 đ",
@@ -119,15 +119,15 @@ const Products = () => {
       style={{
         position: "absolute",
         top: "50%",
-        [direction]: "-40px",
+        [direction]: "-50px",
         transform: "translateY(-50%)",
         zIndex: 10,
         width: "48px",
         height: "48px",
         borderRadius: "50%",
-        background: "rgba(255, 255, 255, 0.9)",
+        background: "rgba(255, 255, 255, 0.95)",
         border: "1px solid #e0e0e0",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
         fontSize: "18px",
         color: "#8B4513",
         display: "flex",
@@ -142,7 +142,7 @@ const Products = () => {
       id="products"
       style={{
         padding: "80px 0",
-        background: "linear-gradient(180deg, #FAF7F0 0%, #FFFFFF 100%)",
+        background: "linear-gradient(180deg, #F5F0E8 0%, #FFFFFF 100%)",
         position: "relative",
       }}
     >
@@ -184,7 +184,7 @@ const Products = () => {
         </AnimationWrapper>
 
         {/* Products Carousel */}
-        <div style={{ position: "relative", margin: "0 60px" }}>
+        <div style={{ position: "relative", margin: "0 70px" }}>
           <CustomArrow
             direction="left"
             onClick={() => carouselRef.current?.prev()}
@@ -226,11 +226,11 @@ const Products = () => {
               },
             ]}
             style={{
-              padding: "0 20px",
+              padding: "0 10px",
             }}
           >
             {products.map((product) => (
-              <div key={product.id} style={{ padding: "0 10px" }}>
+              <div key={product.id} style={{ padding: "0 8px" }}>
                 <Card
                   hoverable
                   style={{
@@ -240,78 +240,10 @@ const Products = () => {
                     overflow: "hidden",
                     background: "#FFFFFF",
                     transition: "all 0.3s ease",
-                    height: "480px",
+                    height: "520px",
+                    position: "relative",
                   }}
-                  bodyStyle={{ padding: "16px" }}
-                  cover={
-                    <div style={{ position: "relative", overflow: "hidden" }}>
-                      {/* Discount Badge */}
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: "0",
-                          left: "0",
-                          background: "#E53E3E",
-                          color: "#FFFFFF",
-                          padding: "6px 12px",
-                          fontSize: "12px",
-                          fontWeight: "600",
-                          borderRadius: "0 0 12px 0",
-                          zIndex: 2,
-                        }}
-                      >
-                        Giảm {product.discount}
-                      </div>
-
-                      {/* Product Image */}
-                      <div
-                        style={{
-                          height: "200px",
-                          background: "#F7F7F7",
-                          borderRadius: "16px",
-                          margin: "12px",
-                          overflow: "hidden",
-                          position: "relative",
-                        }}
-                      >
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            transition: "transform 0.3s ease",
-                          }}
-                        />
-                      </div>
-
-                      {/* Cart Icon */}
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "16px",
-                          left: "16px",
-                          width: "40px",
-                          height: "40px",
-                          background: "#D2B48C",
-                          borderRadius: "50%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          cursor: "pointer",
-                          transition: "all 0.3s ease",
-                        }}
-                      >
-                        <ShoppingCartOutlined
-                          style={{
-                            color: "#FFFFFF",
-                            fontSize: "18px",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  }
+                  bodyStyle={{ padding: "0" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-8px)";
                     e.currentTarget.style.boxShadow =
@@ -323,18 +255,85 @@ const Products = () => {
                       "0 4px 20px rgba(0, 0, 0, 0.08)";
                   }}
                 >
-                  {/* Product Info */}
-                  <div style={{ padding: "8px 0" }}>
+                  {/* Discount Badge */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      background: "#E53E3E",
+                      color: "#FFFFFF",
+                      padding: "8px 12px",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      borderRadius: "0 0 12px 0",
+                      zIndex: 3,
+                    }}
+                  >
+                    Giảm {product.discount}
+                  </div>
+
+                  {/* Product Image */}
+                  <div
+                    style={{
+                      height: "200px",
+                      background: "#F8F8F8",
+                      margin: "16px 16px 0 16px",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      position: "relative",
+                    }}
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease",
+                      }}
+                    />
+                  </div>
+
+                  {/* Cart Icon */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "180px",
+                      left: "24px",
+                      width: "40px",
+                      height: "40px",
+                      background: "#A0522D",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      zIndex: 2,
+                    }}
+                  >
+                    <ShoppingCartOutlined
+                      style={{
+                        color: "#FFFFFF",
+                        fontSize: "16px",
+                      }}
+                    />
+                  </div>
+
+                  {/* Product Content */}
+                  <div style={{ padding: "20px 16px 16px 16px" }}>
                     {/* Product Title */}
                     <Title
                       level={4}
                       style={{
                         color: "#8B4513",
-                        marginBottom: "8px",
-                        fontSize: "16px",
+                        marginBottom: "12px",
+                        fontSize: "15px",
                         fontWeight: "600",
                         lineHeight: "1.3",
-                        height: "42px",
+                        height: "40px",
                         overflow: "hidden",
                         display: "-webkit-box",
                         WebkitLineClamp: 2,
@@ -345,24 +344,24 @@ const Products = () => {
                     </Title>
 
                     {/* Rating */}
-                    <div style={{ marginBottom: "12px" }}>
+                    <div style={{ marginBottom: "16px" }}>
                       <Rate
                         disabled
                         defaultValue={product.rating}
-                        style={{ fontSize: "14px", color: "#FFD700" }}
+                        style={{ fontSize: "16px", color: "#FFD700" }}
                       />
                     </div>
 
                     {/* Product Details */}
-                    <div style={{ marginBottom: "16px" }}>
+                    <div style={{ marginBottom: "20px" }}>
                       {product.details.map((detail, index) => (
                         <div
                           key={index}
                           style={{
                             display: "flex",
                             alignItems: "flex-start",
-                            marginBottom: "4px",
-                            fontSize: "12px",
+                            marginBottom: "6px",
+                            fontSize: "13px",
                             color: "#666",
                             lineHeight: "1.4",
                           }}
@@ -370,9 +369,10 @@ const Products = () => {
                           <span
                             style={{
                               color: "#E53E3E",
-                              marginRight: "6px",
-                              fontSize: "8px",
-                              lineHeight: "1.5",
+                              marginRight: "8px",
+                              fontSize: "10px",
+                              lineHeight: "1.6",
+                              fontWeight: "600",
                             }}
                           >
                             ♦
@@ -383,12 +383,13 @@ const Products = () => {
                     </div>
 
                     {/* Price */}
-                    <div style={{ marginBottom: "16px" }}>
+                    <div style={{ marginBottom: "20px" }}>
                       <div
                         style={{
                           display: "flex",
                           alignItems: "center",
                           gap: "8px",
+                          marginBottom: "4px",
                         }}
                       >
                         <Text
@@ -396,16 +397,16 @@ const Products = () => {
                           style={{
                             fontSize: "16px",
                             color: "#E53E3E",
-                            fontWeight: "600",
+                            fontWeight: "700",
                           }}
                         >
                           {product.salePrice}
                         </Text>
                         <Text
-                          delete
                           style={{
                             color: "#999",
-                            fontSize: "12px",
+                            fontSize: "14px",
+                            textDecoration: "line-through",
                           }}
                         >
                           {product.originalPrice}
@@ -417,13 +418,20 @@ const Products = () => {
                     <Button
                       style={{
                         width: "100%",
-                        height: "36px",
-                        backgroundColor: "#D2B48C",
+                        height: "40px",
+                        backgroundColor: "#A0522D",
                         border: "none",
-                        borderRadius: "18px",
+                        borderRadius: "20px",
                         color: "#FFFFFF",
                         fontWeight: "600",
                         fontSize: "14px",
+                        transition: "all 0.3s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = "#8B4513";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = "#A0522D";
                       }}
                     >
                       Chi tiết
@@ -435,8 +443,30 @@ const Products = () => {
           </Carousel>
         </div>
 
+        {/* Custom Dots Styling */}
+        <style>{`
+          .ant-carousel .slick-dots {
+            bottom: -50px;
+          }
+          .ant-carousel .slick-dots li button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #D2B48C;
+            opacity: 0.3;
+          }
+          .ant-carousel .slick-dots li.slick-active button {
+            background: #A0522D;
+            opacity: 1;
+          }
+          .ant-carousel .slick-dots li button:hover {
+            background: #A0522D;
+            opacity: 0.8;
+          }
+        `}</style>
+
         {/* View All Button */}
-        <div style={{ textAlign: "center", marginTop: "60px" }}>
+        <div style={{ textAlign: "center", marginTop: "70px" }}>
           <Button
             type="primary"
             size="large"
@@ -446,9 +476,10 @@ const Products = () => {
               fontSize: "16px",
               fontWeight: "600",
               borderRadius: "24px",
-              background: "linear-gradient(135deg, #D2B48C, #DEB887)",
+              background: "linear-gradient(135deg, #A0522D, #D2B48C)",
               border: "none",
               color: "#FFFFFF",
+              boxShadow: "0 4px 16px rgba(160, 82, 45, 0.3)",
             }}
           >
             Xem Tất Cả Sản Phẩm
