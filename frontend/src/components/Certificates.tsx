@@ -8,6 +8,8 @@ import {
   SecurityScanOutlined,
   LeftOutlined,
   RightOutlined,
+  EyeOutlined,
+  DownloadOutlined,
 } from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
@@ -20,18 +22,19 @@ const Certificates = () => {
       id: 1,
       name: "FDA",
       fullName: "Food and Drug Administration",
-      vietnameseName: "Cục Quản Lý Thực Phẩm và Dược Phẩm Hoa Kỳ",
+      vietnameseName: "Cục Quản Lý Thực Phẩm v�� Dược Phẩm Hoa Kỳ",
       description:
         "Chứng nhận an toàn thực phẩm từ FDA Hoa Kỳ, đảm bảo sản phẩm đạt tiêu chuẩn xuất khẩu quốc tế",
       certificateNumber: "FDA-2023-BN-047892",
       issueDate: "15/03/2023",
       expiryDate: "14/03/2026",
-      image:
-        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&h=150&fit=crop",
+      certificateImage:
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
       logo: "🇺🇸",
       color: "#1f4e79",
       icon: <SafetyCertificateOutlined />,
       verified: true,
+      authority: "U.S. Food and Drug Administration",
     },
     {
       id: 2,
@@ -43,12 +46,13 @@ const Certificates = () => {
       certificateNumber: "HACCP-VN-2023-891",
       issueDate: "28/02/2023",
       expiryDate: "27/02/2026",
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=150&fit=crop",
+      certificateImage:
+        "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop",
       logo: "🛡️",
       color: "#52c41a",
       icon: <SecurityScanOutlined />,
       verified: true,
+      authority: "Vietnam Food Safety Department",
     },
     {
       id: 3,
@@ -60,12 +64,13 @@ const Certificates = () => {
       certificateNumber: "ISO-22000-VN-2023-456",
       issueDate: "10/01/2023",
       expiryDate: "09/01/2026",
-      image:
-        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&h=150&fit=crop",
+      certificateImage:
+        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
       logo: "🌐",
       color: "#1890ff",
       icon: <GlobalOutlined />,
       verified: true,
+      authority: "International Organization for Standardization",
     },
     {
       id: 4,
@@ -77,12 +82,13 @@ const Certificates = () => {
       certificateNumber: "ORG-CERT-2023-112",
       issueDate: "05/04/2023",
       expiryDate: "04/04/2026",
-      image:
-        "https://images.unsplash.com/photo-1574263867128-36c8ac74ddbe?w=200&h=150&fit=crop",
+      certificateImage:
+        "https://images.unsplash.com/photo-1560472355-a5b4ab5a0e0b?w=400&h=300&fit=crop",
       logo: "🌿",
       color: "#73d13d",
       icon: <CheckCircleOutlined />,
       verified: true,
+      authority: "Organic Certification Agency",
     },
     {
       id: 5,
@@ -94,12 +100,13 @@ const Certificates = () => {
       certificateNumber: "GMP-2023-VN-789",
       issueDate: "20/05/2023",
       expiryDate: "19/05/2026",
-      image:
-        "https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=200&h=150&fit=crop",
+      certificateImage:
+        "https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=400&h=300&fit=crop",
       logo: "⚙️",
       color: "#fa8c16",
       icon: <StarOutlined />,
       verified: true,
+      authority: "Ministry of Health Vietnam",
     },
     {
       id: 6,
@@ -111,12 +118,13 @@ const Certificates = () => {
       certificateNumber: "TCVN-2023-BN-334",
       issueDate: "12/06/2023",
       expiryDate: "11/06/2026",
-      image:
-        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&h=150&fit=crop",
+      certificateImage:
+        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
       logo: "🇻🇳",
       color: "#eb2f96",
       icon: <CheckCircleOutlined />,
       verified: true,
+      authority: "Vietnam National Standard",
     },
   ];
 
@@ -389,10 +397,10 @@ const Certificates = () => {
                     backdropFilter: "blur(20px)",
                     boxShadow: "0 16px 40px rgba(0, 0, 0, 0.2)",
                     overflow: "hidden",
-                    height: "480px",
+                    height: "560px",
                     transition: "all 0.3s ease",
                   }}
-                  bodyStyle={{ padding: "32px 24px 24px" }}
+                  bodyStyle={{ padding: 0 }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "translateY(-8px)";
                     e.currentTarget.style.boxShadow =
@@ -403,96 +411,252 @@ const Certificates = () => {
                     e.currentTarget.style.boxShadow =
                       "0 16px 40px rgba(0, 0, 0, 0.2)";
                   }}
-                >
-                  {/* Certificate Header */}
-                  <div style={{ textAlign: "center", marginBottom: "24px" }}>
+                  cover={
                     <div
                       style={{
-                        width: "80px",
-                        height: "80px",
-                        background: `linear-gradient(135deg, ${cert.color}, ${cert.color}88)`,
-                        borderRadius: "20px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto 16px",
-                        fontSize: "36px",
-                        boxShadow: `0 8px 24px ${cert.color}33`,
-                        animation: "float 3s ease-in-out infinite",
+                        position: "relative",
+                        height: "200px",
+                        overflow: "hidden",
                       }}
                     >
-                      {cert.logo}
-                    </div>
-
-                    {cert.verified && (
+                      {/* Certificate Image */}
                       <div
                         style={{
-                          background: "#52c41a",
-                          color: "#ffffff",
-                          padding: "4px 12px",
-                          borderRadius: "15px",
-                          fontSize: "12px",
-                          fontWeight: "600",
-                          display: "inline-flex",
+                          background:
+                            "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
+                          height: "100%",
+                          position: "relative",
+                          display: "flex",
                           alignItems: "center",
-                          gap: "6px",
-                          marginBottom: "12px",
+                          justifyContent: "center",
+                          padding: "20px",
                         }}
                       >
-                        <CheckCircleOutlined style={{ fontSize: "12px" }} />
-                        Đã Xác Thực
+                        {/* Certificate Mock Design */}
+                        <div
+                          style={{
+                            background:
+                              "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
+                            border: `4px solid ${cert.color}`,
+                            borderRadius: "12px",
+                            width: "100%",
+                            height: "160px",
+                            position: "relative",
+                            boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "16px",
+                          }}
+                        >
+                          {/* Certificate Header */}
+                          <div
+                            style={{ textAlign: "center", marginBottom: "8px" }}
+                          >
+                            <div
+                              style={{
+                                fontSize: "24px",
+                                marginBottom: "4px",
+                              }}
+                            >
+                              {cert.logo}
+                            </div>
+                            <Text
+                              style={{
+                                color: cert.color,
+                                fontSize: "16px",
+                                fontWeight: "700",
+                                textTransform: "uppercase",
+                                letterSpacing: "1px",
+                              }}
+                            >
+                              {cert.name}
+                            </Text>
+                          </div>
+
+                          {/* Certificate Body */}
+                          <div style={{ textAlign: "center", flex: 1 }}>
+                            <Text
+                              style={{
+                                color: "#1a1a2e",
+                                fontSize: "11px",
+                                fontWeight: "600",
+                                marginBottom: "4px",
+                                display: "block",
+                              }}
+                            >
+                              CERTIFICATE OF COMPLIANCE
+                            </Text>
+                            <Text
+                              style={{
+                                color: "#666",
+                                fontSize: "9px",
+                                lineHeight: "1.2",
+                                display: "block",
+                              }}
+                            >
+                              This certifies that PureNest products meet all
+                              requirements of {cert.fullName}
+                            </Text>
+                          </div>
+
+                          {/* Certificate Number */}
+                          <div
+                            style={{
+                              background: cert.color,
+                              color: "#ffffff",
+                              padding: "4px 8px",
+                              borderRadius: "6px",
+                              fontSize: "8px",
+                              fontWeight: "600",
+                              fontFamily: "monospace",
+                            }}
+                          >
+                            {cert.certificateNumber}
+                          </div>
+
+                          {/* Certificate Seal */}
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "-8px",
+                              right: "-8px",
+                              width: "40px",
+                              height: "40px",
+                              background: `linear-gradient(135deg, ${cert.color}, ${cert.color}dd)`,
+                              borderRadius: "50%",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              border: "3px solid #ffffff",
+                              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                            }}
+                          >
+                            <CheckCircleOutlined
+                              style={{
+                                color: "#ffffff",
+                                fontSize: "16px",
+                              }}
+                            />
+                          </div>
+                        </div>
                       </div>
-                    )}
-                  </div>
 
-                  {/* Certificate Info */}
-                  <div style={{ textAlign: "center" }}>
-                    <Title
-                      level={4}
-                      style={{
-                        color: "#ffffff",
-                        marginBottom: "8px",
-                        fontSize: "20px",
-                        fontWeight: "700",
-                      }}
-                    >
-                      {cert.name}
-                    </Title>
+                      {/* Verified Badge */}
+                      {cert.verified && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "12px",
+                            left: "12px",
+                            background: "#52c41a",
+                            color: "#ffffff",
+                            padding: "4px 8px",
+                            borderRadius: "12px",
+                            fontSize: "10px",
+                            fontWeight: "600",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            zIndex: 2,
+                          }}
+                        >
+                          <CheckCircleOutlined style={{ fontSize: "10px" }} />
+                          Verified
+                        </div>
+                      )}
 
-                    <Text
-                      style={{
-                        color: "rgba(255, 255, 255, 0.7)",
-                        fontSize: "13px",
-                        display: "block",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      {cert.fullName}
-                    </Text>
+                      {/* View Certificate Overlay */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          background: "rgba(0, 0, 0, 0.7)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          opacity: 0,
+                          transition: "opacity 0.3s ease",
+                          cursor: "pointer",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.opacity = "1";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.opacity = "0";
+                        }}
+                      >
+                        <Button
+                          type="primary"
+                          icon={<EyeOutlined />}
+                          style={{
+                            background: "rgba(255, 255, 255, 0.9)",
+                            color: "#1a1a2e",
+                            border: "none",
+                            borderRadius: "20px",
+                            fontWeight: "600",
+                          }}
+                        >
+                          Xem Chứng Nhận
+                        </Button>
+                      </div>
+                    </div>
+                  }
+                >
+                  <div style={{ padding: "24px" }}>
+                    {/* Certificate Info */}
+                    <div style={{ textAlign: "center", marginBottom: "20px" }}>
+                      <Title
+                        level={4}
+                        style={{
+                          color: "#ffffff",
+                          marginBottom: "8px",
+                          fontSize: "18px",
+                          fontWeight: "700",
+                        }}
+                      >
+                        {cert.name}
+                      </Title>
 
-                    <Text
-                      style={{
-                        color: "rgba(255, 255, 255, 0.6)",
-                        fontSize: "12px",
-                        display: "block",
-                        marginBottom: "16px",
-                        fontStyle: "italic",
-                      }}
-                    >
-                      {cert.vietnameseName}
-                    </Text>
+                      <Text
+                        style={{
+                          color: "rgba(255, 255, 255, 0.7)",
+                          fontSize: "12px",
+                          display: "block",
+                          marginBottom: "4px",
+                        }}
+                      >
+                        {cert.fullName}
+                      </Text>
 
-                    <Paragraph
-                      style={{
-                        color: "rgba(255, 255, 255, 0.8)",
-                        fontSize: "14px",
-                        lineHeight: "1.6",
-                        marginBottom: "20px",
-                        textAlign: "left",
-                      }}
-                    >
-                      {cert.description}
-                    </Paragraph>
+                      <Text
+                        style={{
+                          color: "rgba(255, 255, 255, 0.6)",
+                          fontSize: "11px",
+                          display: "block",
+                          marginBottom: "12px",
+                          fontStyle: "italic",
+                        }}
+                      >
+                        {cert.vietnameseName}
+                      </Text>
+
+                      <Paragraph
+                        style={{
+                          color: "rgba(255, 255, 255, 0.8)",
+                          fontSize: "13px",
+                          lineHeight: "1.5",
+                          marginBottom: "16px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {cert.description}
+                      </Paragraph>
+                    </div>
 
                     {/* Certificate Details */}
                     <div
@@ -504,12 +668,35 @@ const Certificates = () => {
                         border: "1px solid rgba(255, 255, 255, 0.1)",
                       }}
                     >
-                      <div style={{ marginBottom: "8px" }}>
+                      <div style={{ marginBottom: "12px" }}>
                         <Text
                           style={{
                             color: "rgba(255, 255, 255, 0.7)",
-                            fontSize: "12px",
+                            fontSize: "11px",
                             display: "block",
+                            marginBottom: "4px",
+                          }}
+                        >
+                          Cơ quan cấp:
+                        </Text>
+                        <Text
+                          style={{
+                            color: "#ffffff",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {cert.authority}
+                        </Text>
+                      </div>
+
+                      <div style={{ marginBottom: "12px" }}>
+                        <Text
+                          style={{
+                            color: "rgba(255, 255, 255, 0.7)",
+                            fontSize: "11px",
+                            display: "block",
+                            marginBottom: "4px",
                           }}
                         >
                           Số chứng nhận:
@@ -517,7 +704,7 @@ const Certificates = () => {
                         <Text
                           style={{
                             color: "#d4af37",
-                            fontSize: "13px",
+                            fontSize: "12px",
                             fontWeight: "600",
                             fontFamily: "monospace",
                           }}
@@ -531,7 +718,7 @@ const Certificates = () => {
                           <Text
                             style={{
                               color: "rgba(255, 255, 255, 0.7)",
-                              fontSize: "11px",
+                              fontSize: "10px",
                               display: "block",
                             }}
                           >
@@ -540,7 +727,7 @@ const Certificates = () => {
                           <Text
                             style={{
                               color: "rgba(255, 255, 255, 0.9)",
-                              fontSize: "12px",
+                              fontSize: "11px",
                               fontWeight: "500",
                             }}
                           >
@@ -551,7 +738,7 @@ const Certificates = () => {
                           <Text
                             style={{
                               color: "rgba(255, 255, 255, 0.7)",
-                              fontSize: "11px",
+                              fontSize: "10px",
                               display: "block",
                             }}
                           >
@@ -560,7 +747,7 @@ const Certificates = () => {
                           <Text
                             style={{
                               color: "rgba(255, 255, 255, 0.9)",
-                              fontSize: "12px",
+                              fontSize: "11px",
                               fontWeight: "500",
                             }}
                           >
@@ -570,22 +757,45 @@ const Certificates = () => {
                       </Row>
                     </div>
 
-                    {/* View Certificate Button */}
-                    <Button
-                      size="small"
-                      style={{
-                        background: `linear-gradient(135deg, ${cert.color}, ${cert.color}dd)`,
-                        border: "none",
-                        color: "#ffffff",
-                        borderRadius: "20px",
-                        height: "32px",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        padding: "0 16px",
-                      }}
-                    >
-                      Xem Chi Tiết
-                    </Button>
+                    {/* Action Buttons */}
+                    <Row gutter={[8, 8]}>
+                      <Col span={12}>
+                        <Button
+                          size="small"
+                          icon={<EyeOutlined />}
+                          block
+                          style={{
+                            background: `linear-gradient(135deg, ${cert.color}, ${cert.color}dd)`,
+                            border: "none",
+                            color: "#ffffff",
+                            borderRadius: "16px",
+                            height: "32px",
+                            fontSize: "11px",
+                            fontWeight: "600",
+                          }}
+                        >
+                          Xem
+                        </Button>
+                      </Col>
+                      <Col span={12}>
+                        <Button
+                          size="small"
+                          icon={<DownloadOutlined />}
+                          block
+                          style={{
+                            background: "rgba(255, 255, 255, 0.1)",
+                            border: "1px solid rgba(255, 255, 255, 0.2)",
+                            color: "#ffffff",
+                            borderRadius: "16px",
+                            height: "32px",
+                            fontSize: "11px",
+                            fontWeight: "600",
+                          }}
+                        >
+                          Tải
+                        </Button>
+                      </Col>
+                    </Row>
                   </div>
                 </Card>
               </div>
@@ -639,6 +849,7 @@ const Certificates = () => {
             <Button
               type="primary"
               size="large"
+              icon={<DownloadOutlined />}
               style={{
                 background: "linear-gradient(135deg, #d4af37, #f4e4a6)",
                 border: "none",
@@ -649,7 +860,7 @@ const Certificates = () => {
                 fontWeight: "600",
               }}
             >
-              Tải Xuống Chứng Nhận
+              Tải Xuống Tất Cả Chứng Nhận
             </Button>
           </div>
         </div>
