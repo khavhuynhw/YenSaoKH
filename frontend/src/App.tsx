@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ConfigProvider, Layout } from "antd";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Products from "./components/Products";
+import Benefits from "./components/Benefits";
+import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
+
+const { Content } = Layout;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const theme = {
+    token: {
+      colorPrimary: "#d4af37",
+      colorLink: "#d4af37",
+      colorLinkHover: "#f4e4a6",
+      fontFamily: "Inter, system-ui, sans-serif",
+      borderRadius: 12,
+      fontSize: 16,
+    },
+    components: {
+      Button: {
+        borderRadius: 25,
+        controlHeight: 48,
+        fontSize: 16,
+        fontWeight: 600,
+      },
+      Card: {
+        borderRadius: 20,
+        paddingLG: 32,
+      },
+      Menu: {
+        horizontalItemSelectedColor: "#d4af37",
+        horizontalItemHoverColor: "#d4af37",
+      },
+    },
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ConfigProvider theme={theme}>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Header />
+        <Content>
+          <Hero />
+          <Products />
+          <Benefits />
+          <Testimonials />
+        </Content>
+        <Footer />
+      </Layout>
+    </ConfigProvider>
+  );
 }
 
-export default App
+export default App;
