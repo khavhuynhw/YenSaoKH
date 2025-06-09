@@ -24,139 +24,124 @@ const Header = () => {
   };
 
   return (
-    <AntHeader
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        background: "#ffffff",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
-        height: "auto",
-        lineHeight: "normal",
-        padding: 0,
-      }}
-    >
-      <div
-        style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px" }}
+    <>
+      <AntHeader
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          background: "#ffffff",
+          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+          height: "auto",
+          lineHeight: "normal",
+          padding: 0,
+        }}
       >
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px" }}
         >
-          {/* Logo */}
-          <div>
-            <h2
-              style={{
-                color: "#d4af37",
-                fontSize: "1.8rem",
-                fontWeight: "bold",
-                lineHeight: "1.2",
-                margin: 0,
-                marginBottom: "-4px",
-              }}
-            >
-              PureNest
-            </h2>
-            <span
-              style={{
-                fontSize: "0.85rem",
-                fontWeight: "normal",
-                color: "#666666",
-              }}
-            >
-              Premium Bird's Nest
-            </span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <Menu
-            mode="horizontal"
-            items={menuItems}
-            onClick={handleMenuClick}
+          <div
             style={{
-              display: "none",
-              "@media (min-width: 768px)": { display: "flex" },
-              border: "none",
-              background: "transparent",
-              flex: 1,
-              justifyContent: "center",
-              fontSize: "16px",
-              fontWeight: 500,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
             }}
-            className="desktop-menu"
-          />
-
-          {/* Header Actions */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            {/* Cart Button */}
-            <Badge count={0} showZero>
-              <Button
-                type="primary"
-                shape="round"
-                icon={<ShoppingCartOutlined />}
-                size="large"
+          >
+            {/* Logo */}
+            <div>
+              <h2
                 style={{
-                  background:
-                    "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
-                  border: "none",
-                  height: "48px",
-                  padding: "0 20px",
-                  display: "flex",
-                  alignItems: "center",
+                  color: "#d4af37",
+                  fontSize: "1.8rem",
+                  fontWeight: "bold",
+                  lineHeight: "1.2",
+                  margin: 0,
+                  marginBottom: "-4px",
                 }}
               >
-                Cart
-              </Button>
-            </Badge>
+                PureNest
+              </h2>
+              <span
+                style={{
+                  fontSize: "0.85rem",
+                  fontWeight: "normal",
+                  color: "#666666",
+                }}
+              >
+                Premium Bird's Nest
+              </span>
+            </div>
 
-            {/* Mobile Menu Toggle */}
-            <Button
-              type="text"
-              icon={<MenuOutlined />}
-              size="large"
-              style={{ display: "block" }}
-              className="mobile-menu-btn"
-              onClick={() => setDrawerVisible(true)}
+            {/* Desktop Navigation */}
+            <Menu
+              mode="horizontal"
+              items={menuItems}
+              onClick={handleMenuClick}
+              className="desktop-menu"
+              style={{
+                border: "none",
+                background: "transparent",
+                flex: 1,
+                justifyContent: "center",
+                fontSize: "16px",
+                fontWeight: 500,
+              }}
             />
+
+            {/* Header Actions */}
+            <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+              {/* Cart Button */}
+              <Badge count={0} showZero>
+                <Button
+                  type="primary"
+                  shape="round"
+                  icon={<ShoppingCartOutlined />}
+                  size="large"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
+                    border: "none",
+                    height: "48px",
+                    padding: "0 20px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  Cart
+                </Button>
+              </Badge>
+
+              {/* Mobile Menu Toggle */}
+              <Button
+                type="text"
+                icon={<MenuOutlined />}
+                size="large"
+                className="mobile-menu-btn"
+                onClick={() => setDrawerVisible(true)}
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Drawer */}
-      <Drawer
-        title="Navigation"
-        placement="right"
-        onClose={() => setDrawerVisible(false)}
-        open={drawerVisible}
-        width={300}
-      >
-        <Menu
-          mode="vertical"
-          items={menuItems}
-          onClick={handleMenuClick}
-          style={{ border: "none" }}
-        />
-      </Drawer>
-
-      <style jsx>{`
-        .desktop-menu {
-          display: none;
-        }
-        @media (min-width: 768px) {
-          .desktop-menu {
-            display: flex !important;
-          }
-          .mobile-menu-btn {
-            display: none !important;
-          }
-        }
-      `}</style>
-    </AntHeader>
+        {/* Mobile Drawer */}
+        <Drawer
+          title="Navigation"
+          placement="right"
+          onClose={() => setDrawerVisible(false)}
+          open={drawerVisible}
+          width={300}
+        >
+          <Menu
+            mode="vertical"
+            items={menuItems}
+            onClick={handleMenuClick}
+            style={{ border: "none" }}
+          />
+        </Drawer>
+      </AntHeader>
+    </>
   );
 };
 

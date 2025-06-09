@@ -13,6 +13,7 @@ const Hero = () => {
         position: "relative",
         overflow: "hidden",
         background: "linear-gradient(135deg, #faf8f3 0%, #ffffff 100%)",
+        minHeight: "100vh",
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
@@ -23,7 +24,7 @@ const Hero = () => {
               <Title
                 level={1}
                 style={{
-                  fontSize: "3.5rem",
+                  fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
                   lineHeight: "1.2",
                   marginBottom: "24px",
                   color: "#1a1a2e",
@@ -40,6 +41,8 @@ const Hero = () => {
                   color: "#666666",
                   lineHeight: "1.7",
                   marginBottom: "40px",
+                  maxWidth: "500px",
+                  margin: "0 auto 40px auto",
                 }}
               >
                 Experience the ancient secret of beauty and wellness with our
@@ -60,6 +63,7 @@ const Hero = () => {
                     height: "56px",
                     padding: "0 32px",
                     fontSize: "18px",
+                    fontWeight: 600,
                   }}
                 >
                   Shop Now
@@ -71,6 +75,7 @@ const Hero = () => {
                     padding: "0 32px",
                     fontSize: "18px",
                     borderColor: "#e8e8e8",
+                    color: "#2c2c2c",
                   }}
                 >
                   Learn More
@@ -78,7 +83,14 @@ const Hero = () => {
               </Space>
 
               {/* Feature Points */}
-              <Space size="large" wrap style={{ justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexWrap: "wrap",
+                  gap: "2rem",
+                }}
+              >
                 <div
                   style={{
                     display: "flex",
@@ -118,7 +130,7 @@ const Hero = () => {
                   />
                   <span>Premium Quality</span>
                 </div>
-              </Space>
+              </div>
             </div>
           </Col>
 
@@ -129,13 +141,14 @@ const Hero = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                paddingTop: "2rem",
               }}
             >
               <div style={{ position: "relative" }}>
                 <Card
                   style={{
-                    width: "320px",
-                    height: "320px",
+                    width: "300px",
+                    height: "300px",
                     background:
                       "linear-gradient(135deg, #16213e 0%, #0f3460 100%)",
                     border: "none",
