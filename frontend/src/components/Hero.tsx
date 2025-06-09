@@ -17,16 +17,16 @@ const Hero = () => {
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
-        <Row gutter={[60, 40]} align="middle">
-          {/* Hero Text */}
-          <Col xs={24} lg={13}>
+        <Row gutter={[80, 40]} align="middle">
+          {/* Hero Text - Left Side */}
+          <Col xs={24} lg={12}>
             <div>
               {/* Certification Badge */}
               <div style={{ marginBottom: "32px" }}>
                 <div
                   style={{
                     background: "white",
-                    padding: "10px 20px",
+                    padding: "12px 24px",
                     borderRadius: "25px",
                     display: "inline-flex",
                     alignItems: "center",
@@ -41,10 +41,11 @@ const Hero = () => {
                 </div>
               </div>
 
+              {/* Main Title */}
               <Title
                 level={1}
                 style={{
-                  fontSize: "clamp(2.8rem, 5vw, 4.2rem)",
+                  fontSize: "clamp(3rem, 5.5vw, 4.5rem)",
                   lineHeight: "1.1",
                   marginBottom: "28px",
                   color: "#2c2c2c",
@@ -68,6 +69,7 @@ const Hero = () => {
                 cho Sức Khỏe Tối Ưu
               </Title>
 
+              {/* Description */}
               <Paragraph
                 style={{
                   fontSize: "1.1rem",
@@ -128,7 +130,7 @@ const Hero = () => {
                 </Space>
               </div>
 
-              {/* Call to Action Buttons */}
+              {/* CTA Buttons */}
               <Space size="large" style={{ marginBottom: "48px" }} wrap>
                 <Button
                   type="primary"
@@ -229,8 +231,8 @@ const Hero = () => {
             </div>
           </Col>
 
-          {/* Hero Image with Large White Oval Bowl */}
-          <Col xs={24} lg={11}>
+          {/* Hero Image - Right Side */}
+          <Col xs={24} lg={12}>
             <div
               style={{
                 display: "flex",
@@ -240,100 +242,158 @@ const Hero = () => {
                 minHeight: "500px",
               }}
             >
-              {/* Large White Oval Bowl Container */}
+              {/* Main Bowl Container */}
               <div
                 style={{
                   position: "relative",
-                  width: "450px",
-                  height: "350px",
+                  width: "500px",
+                  height: "400px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                {/* Main White Oval Bowl */}
+                {/* Large White Oval Bowl */}
                 <div
                   style={{
-                    width: "380px",
-                    height: "280px",
-                    background: "white",
+                    width: "420px",
+                    height: "300px",
+                    background:
+                      "linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%)",
                     borderRadius: "50%",
-                    boxShadow: "0 25px 80px rgba(0, 0, 0, 0.12)",
+                    boxShadow:
+                      "0 30px 100px rgba(0, 0, 0, 0.15), inset 0 -10px 30px rgba(0,0,0,0.05)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     position: "relative",
-                    transform: "perspective(600px) rotateX(15deg)",
+                    transform:
+                      "perspective(800px) rotateX(12deg) rotateY(-5deg)",
+                    border: "1px solid rgba(255,255,255,0.8)",
                   }}
                 >
-                  {/* Inner Golden Ring */}
+                  {/* Golden Ring - Bird's Nest Product */}
                   <div
                     style={{
-                      width: "140px",
-                      height: "140px",
+                      width: "150px",
+                      height: "150px",
                       background:
-                        "linear-gradient(135deg, #d4af37 0%, #c9a876 100%)",
+                        "linear-gradient(135deg, #d4af37 0%, #c9a876 50%, #d4af37 100%)",
                       borderRadius: "50%",
-                      boxShadow: "0 15px 40px rgba(212, 175, 55, 0.4)",
-                      border: "4px solid rgba(255,255,255,0.3)",
+                      boxShadow:
+                        "0 20px 50px rgba(212, 175, 55, 0.4), inset 0 5px 15px rgba(255,255,255,0.3)",
+                      border: "3px solid rgba(255,255,255,0.2)",
+                      position: "relative",
                     }}
-                  />
+                  >
+                    {/* Inner highlight */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "15px",
+                        left: "15px",
+                        width: "60px",
+                        height: "60px",
+                        background: "rgba(255,255,255,0.3)",
+                        borderRadius: "50%",
+                        filter: "blur(10px)",
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Floating Benefit Tags */}
+
+                {/* Tăng Collagen - Top Right */}
                 <div
                   style={{
                     position: "absolute",
-                    top: "60px",
-                    right: "40px",
-                    padding: "8px 16px",
+                    top: "80px",
+                    right: "60px",
+                    padding: "10px 18px",
                     fontSize: "13px",
                     fontWeight: 500,
-                    borderRadius: "20px",
+                    borderRadius: "25px",
                     border: "none",
                     background: "white",
                     color: "#d4af37",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
+                    boxShadow: "0 8px 25px rgba(0,0,0,0.12)",
+                    zIndex: 10,
                   }}
                 >
                   Tăng Collagen
                 </div>
 
+                {/* Chống Lão Hóa - Bottom Right */}
                 <div
                   style={{
                     position: "absolute",
-                    bottom: "40px",
-                    right: "20px",
-                    padding: "8px 16px",
+                    bottom: "60px",
+                    right: "40px",
+                    padding: "10px 18px",
                     fontSize: "13px",
                     fontWeight: 500,
-                    borderRadius: "20px",
+                    borderRadius: "25px",
                     border: "none",
                     background: "white",
                     color: "#1890ff",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
+                    boxShadow: "0 8px 25px rgba(0,0,0,0.12)",
+                    zIndex: 10,
                   }}
                 >
                   Chống Lão Hóa
                 </div>
 
+                {/* Hỗ Trợ Miễn Dịch - Top Left */}
                 <div
                   style={{
                     position: "absolute",
-                    top: "80px",
-                    left: "20px",
-                    padding: "8px 16px",
+                    top: "100px",
+                    left: "40px",
+                    padding: "10px 18px",
                     fontSize: "13px",
                     fontWeight: 500,
-                    borderRadius: "20px",
+                    borderRadius: "25px",
                     border: "none",
                     background: "white",
                     color: "#52c41a",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
+                    boxShadow: "0 8px 25px rgba(0,0,0,0.12)",
+                    zIndex: 10,
                   }}
                 >
                   Hỗ Trợ Miễn Dịch
                 </div>
+
+                {/* Subtle background decorations */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-60px",
+                    right: "-40px",
+                    width: "120px",
+                    height: "120px",
+                    background:
+                      "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
+                    borderRadius: "50%",
+                    opacity: 0.08,
+                    zIndex: -1,
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "-40px",
+                    left: "-60px",
+                    width: "100px",
+                    height: "100px",
+                    background:
+                      "linear-gradient(135deg, #52c41a 0%, #73d13d 100%)",
+                    borderRadius: "50%",
+                    opacity: 0.06,
+                    zIndex: -1,
+                  }}
+                />
               </div>
             </div>
           </Col>
