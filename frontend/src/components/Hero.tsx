@@ -25,7 +25,7 @@ const Hero = () => {
             opacity: 0.4;
           }
         }
-        
+
         @keyframes float1 {
           0%, 100% {
             transform: translateY(0px) rotate(-5deg);
@@ -34,7 +34,7 @@ const Hero = () => {
             transform: translateY(-10px) rotate(-5deg);
           }
         }
-        
+
         @keyframes float2 {
           0%, 100% {
             transform: translateY(0px) rotate(8deg);
@@ -43,7 +43,7 @@ const Hero = () => {
             transform: translateY(-8px) rotate(8deg);
           }
         }
-        
+
         @keyframes float3 {
           0%, 100% {
             transform: translateY(0px) rotate(-3deg);
@@ -417,9 +417,8 @@ const Hero = () => {
                   <div
                     style={{
                       position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
+                      top: "63px",
+                      left: "64px",
                       width: "350px",
                       height: "350px",
                       background: "linear-gradient(135deg, #ffffff, #f8f6f0)",
@@ -429,17 +428,28 @@ const Hero = () => {
                       justifyContent: "center",
                       boxShadow: "0 20px 60px rgba(0, 0, 0, 0.1)",
                       border: "8px solid rgba(212, 175, 55, 0.1)",
+                      overflow: "hidden",
                     }}
                     className="animate-float"
                   >
-                    <div
+                    <img
+                      src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop&crop=center"
+                      alt="Premium Bird's Nest Product"
                       style={{
-                        fontSize: "120px",
+                        width: "280px",
+                        height: "280px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
                         filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1))",
+                        transition: "transform 0.3s ease",
                       }}
-                    >
-                      🪺
-                    </div>
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.05)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                      }}
+                    />
                   </div>
 
                   {/* Orbiting Elements */}

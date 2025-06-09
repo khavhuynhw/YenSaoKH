@@ -1,26 +1,48 @@
 import { useState } from "react";
 import { Layout, Drawer } from "antd";
 import { ShoppingCartOutlined, MenuOutlined } from "@ant-design/icons";
+import { Link, useLocation } from "react-router-dom";
 
 const { Header: AntHeader } = Layout;
 
 const Header = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const location = useLocation();
 
   const menuItems = [
-    { key: "home", label: "Trang Chủ", href: "#home", active: true },
-    { key: "about", label: "Giới thiệu", href: "#about" },
-    { key: "products", label: "Sản phẩm", href: "#products" },
-    { key: "news", label: "Tin Tức", href: "#benefits" },
-    { key: "promotions", label: "Khuyến mại", href: "#promotions" },
-    { key: "services", label: "Dịch vụ", href: "#services" },
-    { key: "handbook", label: "Cẩm nang", href: "#handbook" },
-    { key: "contact", label: "Liên hệ", href: "#contact" },
+    { key: "home", label: "Trang Chủ", href: "/", type: "route" },
+    { key: "about", label: "Giới thiệu", href: "#about", type: "scroll" },
+    { key: "products", label: "Sản phẩm", href: "/san-pham", type: "route" },
+    { key: "news", label: "Tin Tức", href: "#benefits", type: "scroll" },
+    {
+      key: "promotions",
+      label: "Khuyến mại",
+      href: "#promotions",
+      type: "scroll",
+    },
+    { key: "services", label: "Dịch vụ", href: "#services", type: "scroll" },
+    { key: "handbook", label: "Cẩm nang", href: "#handbook", type: "scroll" },
+    { key: "contact", label: "Liên hệ", href: "#contact", type: "scroll" },
   ];
 
-  const handleMenuClick = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  const handleMenuClick = (item: any) => {
+    if (item.type === "scroll") {
+      // For scroll navigation, only work on homepage
+      if (location.pathname === "/") {
+        document
+          .querySelector(item.href)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
     setDrawerVisible(false);
+  };
+
+  const isActiveItem = (item: any) => {
+    if (item.type === "route") {
+      return location.pathname === item.href;
+    } else {
+      return location.pathname === "/" && item.key === "home";
+    }
   };
 
   return (
@@ -69,9 +91,9 @@ const Header = () => {
               flexShrink: 0, // Prevent logo from shrinking
             }}
           >
-            <a
+            <Link
+              to="/"
               title="PureNest - Yến sào nguyên chất cao cấp"
-              href="#home"
               style={{
                 cursor: "pointer",
                 fontSize: "32px",
@@ -80,10 +102,6 @@ const Header = () => {
                 textTransform: "uppercase",
                 touchAction: "manipulation",
                 textDecoration: "none",
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleMenuClick("#home");
               }}
             >
               <div
@@ -110,7 +128,7 @@ const Header = () => {
                   Premium Bird's Nest
                 </span>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Navigation Menu - All items in one line */}
@@ -150,52 +168,97 @@ const Header = () => {
                     flexShrink: 0, // Prevent items from shrinking
                   }}
                 >
-                  <a
-                    href={item.href}
-                    style={{
-                      alignItems: "center",
-                      color: item.active
-                        ? "rgb(195, 165, 122)"
-                        : "rgba(102, 102, 102, 0.85)",
-                      cursor: "pointer",
-                      display: "inline-flex",
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "14px", // Slightly smaller font
-                      letterSpacing: "0.2px",
-                      lineHeight: "16px",
-                      paddingLeft: "8px", // Increased padding for better click area
-                      paddingRight: "8px",
-                      paddingTop: "4px",
-                      paddingBottom: "4px",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      touchAction: "manipulation",
-                      transitionDuration: "0.2s",
-                      fontWeight: item.active ? 600 : 400,
-                      whiteSpace: "nowrap", // Prevent text wrapping
-                      borderRadius: "4px", // Add subtle border radius
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!item.active) {
-                        e.currentTarget.style.color = "rgb(195, 165, 122)";
-                        e.currentTarget.style.backgroundColor =
-                          "rgba(195, 165, 122, 0.1)";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!item.active) {
-                        e.currentTarget.style.color =
-                          "rgba(102, 102, 102, 0.85)";
-                        e.currentTarget.style.backgroundColor = "transparent";
-                      }
-                    }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleMenuClick(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
+                  {item.type === "route" ? (
+                    <Link
+                      to={item.href}
+                      style={{
+                        alignItems: "center",
+                        color: isActiveItem(item)
+                          ? "rgb(195, 165, 122)"
+                          : "rgba(102, 102, 102, 0.85)",
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "14px", // Slightly smaller font
+                        letterSpacing: "0.2px",
+                        lineHeight: "16px",
+                        paddingLeft: "8px", // Increased padding for better click area
+                        paddingRight: "8px",
+                        paddingTop: "4px",
+                        paddingBottom: "4px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        touchAction: "manipulation",
+                        transitionDuration: "0.2s",
+                        fontWeight: isActiveItem(item) ? 600 : 400,
+                        whiteSpace: "nowrap", // Prevent text wrapping
+                        borderRadius: "4px", // Add subtle border radius
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color = "rgb(195, 165, 122)";
+                          e.currentTarget.style.backgroundColor =
+                            "rgba(195, 165, 122, 0.1)";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color =
+                            "rgba(102, 102, 102, 0.85)";
+                          e.currentTarget.style.backgroundColor = "transparent";
+                        }
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      style={{
+                        alignItems: "center",
+                        color: isActiveItem(item)
+                          ? "rgb(195, 165, 122)"
+                          : "rgba(102, 102, 102, 0.85)",
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "14px", // Slightly smaller font
+                        letterSpacing: "0.2px",
+                        lineHeight: "16px",
+                        paddingLeft: "8px", // Increased padding for better click area
+                        paddingRight: "8px",
+                        paddingTop: "4px",
+                        paddingBottom: "4px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        touchAction: "manipulation",
+                        transitionDuration: "0.2s",
+                        fontWeight: isActiveItem(item) ? 600 : 400,
+                        whiteSpace: "nowrap", // Prevent text wrapping
+                        borderRadius: "4px", // Add subtle border radius
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color = "rgb(195, 165, 122)";
+                          e.currentTarget.style.backgroundColor =
+                            "rgba(195, 165, 122, 0.1)";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color =
+                            "rgba(102, 102, 102, 0.85)";
+                          e.currentTarget.style.backgroundColor = "transparent";
+                        }
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleMenuClick(item);
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -322,28 +385,48 @@ const Header = () => {
           <div
             style={{ display: "flex", flexDirection: "column", gap: "16px" }}
           >
-            {menuItems.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                style={{
-                  padding: "12px 24px",
-                  color: item.active
-                    ? "rgb(195, 165, 122)"
-                    : "rgba(102, 102, 102, 0.85)",
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  fontWeight: item.active ? 600 : 400,
-                  borderBottom: "1px solid #f0f0f0",
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleMenuClick(item.href);
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
+            {menuItems.map((item) =>
+              item.type === "route" ? (
+                <Link
+                  key={item.key}
+                  to={item.href}
+                  style={{
+                    padding: "12px 24px",
+                    color: isActiveItem(item)
+                      ? "rgb(195, 165, 122)"
+                      : "rgba(102, 102, 102, 0.85)",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                    fontWeight: isActiveItem(item) ? 600 : 400,
+                    borderBottom: "1px solid #f0f0f0",
+                  }}
+                  onClick={() => setDrawerVisible(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  style={{
+                    padding: "12px 24px",
+                    color: isActiveItem(item)
+                      ? "rgb(195, 165, 122)"
+                      : "rgba(102, 102, 102, 0.85)",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                    fontWeight: isActiveItem(item) ? 600 : 400,
+                    borderBottom: "1px solid #f0f0f0",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleMenuClick(item);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ),
+            )}
           </div>
         </Drawer>
       </AntHeader>
