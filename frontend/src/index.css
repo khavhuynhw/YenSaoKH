@@ -1,59 +1,32 @@
 /* Import Google Fonts for luxury typography */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-/* Tailwind CSS */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Ant Design CSS */
-@import "~antd/dist/reset.css";
-
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: "Inter", system-ui, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Custom styles that work with Ant Design */
-.gradient-gold {
-  background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%);
+html {
+  scroll-behavior: smooth;
 }
 
-.gradient-blue {
-  background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #2c2c2c;
+  background-color: #ffffff;
 }
 
+/* Custom gradient classes for components */
 .text-gradient-gold {
   background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* Override Ant Design components when needed */
-.ant-layout-header {
-  height: auto !important;
-  line-height: normal !important;
-}
-
-.ant-menu-horizontal {
-  border-bottom: none !important;
-}
-
-.ant-card-hoverable:hover {
-  transform: translateY(-8px);
-  transition: all 0.3s ease;
 }
 
 /* Custom animations */
@@ -71,4 +44,35 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Override Ant Design components when needed */
+.ant-layout-header {
+  height: auto !important;
+  line-height: normal !important;
+}
+
+.ant-menu-horizontal {
+  border-bottom: none !important;
+}
+
+.ant-card-hoverable:hover {
+  transform: translateY(-8px);
+  transition: all 0.3s ease;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .desktop-menu {
+    display: flex !important;
+  }
 }
