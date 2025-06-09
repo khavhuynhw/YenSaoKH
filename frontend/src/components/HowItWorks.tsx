@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Typography, Steps, Card } from "antd";
+import { Row, Col, Typography, Steps, Card, Button } from "antd";
 import {
   SearchOutlined,
   SafetyCertificateOutlined,
@@ -18,7 +18,7 @@ const HowItWorks = () => {
       icon: <SearchOutlined style={{ fontSize: "32px", color: "#d4af37" }} />,
       title: "Tuyển Chọn Nguyên Liệu",
       description:
-        "Chúng tôi tuy���n chọn những tổ yến chất lượng cao nhất từ các hang động tự nhiên và trang trại nuôi yến bền vững.",
+        "Chúng tôi tuyển chọn những tổ yến chất lượng cao nhất từ các hang động tự nhiên và trang trại nuôi yến bền vững.",
       details:
         "• Kiểm tra nguồn gốc xuất xứ\n• Đảm bảo môi trường sạch\n• Chọn lọc theo tiêu chuẩn khắt khe",
     },
@@ -48,7 +48,7 @@ const HowItWorks = () => {
       icon: <GiftOutlined style={{ fontSize: "32px", color: "#d4af37" }} />,
       title: "Đóng Gói Cao Cấp",
       description:
-        "Đóng gói trong môi trư��ng vô trùng, sử dụng bao bì cao cấp để bảo quản chất lượng tối ưu.",
+        "Đóng gói trong môi trường vô trùng, sử dụng bao bì cao cấp để bảo quản chất lượng tối ưu.",
       details:
         "• Bao bì chân không\n• Môi trường vô trùng\n• Thiết kế sang trọng",
     },
