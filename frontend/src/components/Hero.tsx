@@ -1,11 +1,5 @@
-import { Button, Row, Col, Typography, Space, Tag } from "antd";
-import {
-  ShoppingCartOutlined,
-  EyeOutlined,
-  StarFilled,
-  TrophyOutlined,
-  SafetyOutlined,
-} from "@ant-design/icons";
+import { Button, Row, Col, Typography, Space } from "antd";
+import { ShoppingCartOutlined, EyeOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -18,26 +12,26 @@ const Hero = () => {
         paddingBottom: "80px",
         position: "relative",
         overflow: "hidden",
-        background: "#f7f4f0",
+        background: "#f7f3ee",
         minHeight: "90vh",
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
-        <Row gutter={[80, 40]} align="middle">
+        <Row gutter={[60, 40]} align="middle">
           {/* Hero Text */}
-          <Col xs={24} lg={12}>
+          <Col xs={24} lg={13}>
             <div>
               {/* Certification Badge */}
               <div style={{ marginBottom: "32px" }}>
                 <div
                   style={{
                     background: "white",
-                    padding: "12px 24px",
-                    borderRadius: "30px",
+                    padding: "10px 20px",
+                    borderRadius: "25px",
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "8px",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.08)",
                     fontSize: "14px",
                     color: "#d4af37",
                     fontWeight: 500,
@@ -50,14 +44,26 @@ const Hero = () => {
               <Title
                 level={1}
                 style={{
-                  fontSize: "clamp(2.8rem, 5vw, 4rem)",
+                  fontSize: "clamp(2.8rem, 5vw, 4.2rem)",
                   lineHeight: "1.1",
                   marginBottom: "28px",
                   color: "#2c2c2c",
                   fontWeight: 700,
+                  fontFamily: "Inter, sans-serif",
                 }}
               >
-                Yến Sào <span className="text-gradient-gold">Nguyên Chất</span>
+                Yến Sào{" "}
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #d4af37 0%, #c9a876 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Nguyên Chất
+                </span>
                 <br />
                 cho Sức Khỏe Tối Ưu
               </Title>
@@ -68,7 +74,7 @@ const Hero = () => {
                   color: "#666666",
                   lineHeight: "1.7",
                   marginBottom: "32px",
-                  maxWidth: "500px",
+                  maxWidth: "520px",
                 }}
               >
                 Trải nghiệm bí quyết cổ xưa về vẻ đẹp và sức khỏe với yến sào ăn
@@ -76,18 +82,26 @@ const Hero = () => {
                 axit amin thiết yếu cho làn da rạng rỡ và sức sống dồi dào.
               </Paragraph>
 
-              {/* Feature Badges */}
+              {/* Feature Points */}
               <div style={{ marginBottom: "40px" }}>
-                <Space size="large" wrap>
+                <Space direction="vertical" size="middle">
                   <div
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      gap: "12px",
                     }}
                   >
-                    <span style={{ color: "#d4af37" }}>⭐</span>
-                    <Text style={{ fontWeight: 500, color: "#2c2c2c" }}>
+                    <span style={{ color: "#d4af37", fontSize: "16px" }}>
+                      ⭐
+                    </span>
+                    <Text
+                      style={{
+                        fontWeight: 500,
+                        color: "#2c2c2c",
+                        fontSize: "16px",
+                      }}
+                    >
                       100% Tự Nhiên & Nguyên Chất
                     </Text>
                   </div>
@@ -95,11 +109,19 @@ const Hero = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      gap: "12px",
                     }}
                   >
-                    <span style={{ color: "#d4af37" }}>🚚</span>
-                    <Text style={{ fontWeight: 500, color: "#2c2c2c" }}>
+                    <span style={{ color: "#d4af37", fontSize: "16px" }}>
+                      🚚
+                    </span>
+                    <Text
+                      style={{
+                        fontWeight: 500,
+                        color: "#2c2c2c",
+                        fontSize: "16px",
+                      }}
+                    >
                       Miễn Phí Vận Chuyển Toàn Cầu
                     </Text>
                   </div>
@@ -122,6 +144,7 @@ const Hero = () => {
                     fontWeight: 500,
                     borderRadius: "28px",
                     color: "white",
+                    boxShadow: "0 4px 15px rgba(201, 168, 118, 0.3)",
                   }}
                 >
                   Mua Bộ Sưu Tập Cao Cấp
@@ -151,11 +174,17 @@ const Hero = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      gap: "10px",
                     }}
                   >
-                    <span style={{ color: "#fadb14" }}>⭐</span>
-                    <Text style={{ fontWeight: 500, color: "#2c2c2c" }}>
+                    <span style={{ fontSize: "16px" }}>⭐</span>
+                    <Text
+                      style={{
+                        fontWeight: 500,
+                        color: "#2c2c2c",
+                        fontSize: "15px",
+                      }}
+                    >
                       4.9/5 từ 2,500+ đánh giá
                     </Text>
                   </div>
@@ -163,11 +192,17 @@ const Hero = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      gap: "10px",
                     }}
                   >
-                    <span style={{ color: "#d4af37" }}>🏆</span>
-                    <Text style={{ fontWeight: 500, color: "#2c2c2c" }}>
+                    <span style={{ fontSize: "16px" }}>🏆</span>
+                    <Text
+                      style={{
+                        fontWeight: 500,
+                        color: "#2c2c2c",
+                        fontSize: "15px",
+                      }}
+                    >
                       Chất lượng đạt giải thưởng
                     </Text>
                   </div>
@@ -175,11 +210,17 @@ const Hero = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      gap: "10px",
                     }}
                   >
-                    <span style={{ color: "#52c41a" }}>🔒</span>
-                    <Text style={{ fontWeight: 500, color: "#2c2c2c" }}>
+                    <span style={{ fontSize: "16px" }}>🔒</span>
+                    <Text
+                      style={{
+                        fontWeight: 500,
+                        color: "#2c2c2c",
+                        fontSize: "15px",
+                      }}
+                    >
                       Đảm bảo hoàn tiền trong 30 ngày
                     </Text>
                   </div>
@@ -188,8 +229,8 @@ const Hero = () => {
             </div>
           </Col>
 
-          {/* Hero Image with Bowl and Floating Tags */}
-          <Col xs={24} lg={12}>
+          {/* Hero Image with Large White Oval Bowl */}
+          <Col xs={24} lg={11}>
             <div
               style={{
                 display: "flex",
@@ -199,51 +240,52 @@ const Hero = () => {
                 minHeight: "500px",
               }}
             >
-              {/* Main White Bowl/Container */}
+              {/* Large White Oval Bowl Container */}
               <div
                 style={{
                   position: "relative",
-                  width: "400px",
-                  height: "400px",
+                  width: "450px",
+                  height: "350px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                {/* Large White Circle/Bowl */}
+                {/* Main White Oval Bowl */}
                 <div
                   style={{
-                    width: "300px",
-                    height: "300px",
+                    width: "380px",
+                    height: "280px",
                     background: "white",
                     borderRadius: "50%",
-                    boxShadow: "0 20px 60px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 25px 80px rgba(0, 0, 0, 0.12)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     position: "relative",
+                    transform: "perspective(600px) rotateX(15deg)",
                   }}
                 >
-                  {/* Inner Golden Ring/Product */}
+                  {/* Inner Golden Ring */}
                   <div
                     style={{
-                      width: "120px",
-                      height: "120px",
+                      width: "140px",
+                      height: "140px",
                       background:
                         "linear-gradient(135deg, #d4af37 0%, #c9a876 100%)",
                       borderRadius: "50%",
-                      border: "3px solid white",
-                      boxShadow: "0 10px 30px rgba(212, 175, 55, 0.3)",
+                      boxShadow: "0 15px 40px rgba(212, 175, 55, 0.4)",
+                      border: "4px solid rgba(255,255,255,0.3)",
                     }}
                   />
                 </div>
 
                 {/* Floating Benefit Tags */}
-                <Tag
+                <div
                   style={{
                     position: "absolute",
-                    top: "50px",
-                    right: "20px",
+                    top: "60px",
+                    right: "40px",
                     padding: "8px 16px",
                     fontSize: "13px",
                     fontWeight: 500,
@@ -251,17 +293,17 @@ const Hero = () => {
                     border: "none",
                     background: "white",
                     color: "#d4af37",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
                   }}
                 >
                   Tăng Collagen
-                </Tag>
+                </div>
 
-                <Tag
+                <div
                   style={{
                     position: "absolute",
-                    bottom: "80px",
-                    right: "-10px",
+                    bottom: "40px",
+                    right: "20px",
                     padding: "8px 16px",
                     fontSize: "13px",
                     fontWeight: 500,
@@ -269,17 +311,17 @@ const Hero = () => {
                     border: "none",
                     background: "white",
                     color: "#1890ff",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
                   }}
                 >
                   Chống Lão Hóa
-                </Tag>
+                </div>
 
-                <Tag
+                <div
                   style={{
                     position: "absolute",
                     top: "80px",
-                    left: "-20px",
+                    left: "20px",
                     padding: "8px 16px",
                     fontSize: "13px",
                     fontWeight: 500,
@@ -287,61 +329,12 @@ const Hero = () => {
                     border: "none",
                     background: "white",
                     color: "#52c41a",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
                   }}
                 >
                   Hỗ Trợ Miễn Dịch
-                </Tag>
-
-                <Tag
-                  style={{
-                    position: "absolute",
-                    bottom: "50px",
-                    left: "10px",
-                    padding: "8px 16px",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    borderRadius: "20px",
-                    border: "none",
-                    background: "white",
-                    color: "#722ed1",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-                  }}
-                >
-                  Tăng Năng Lượng
-                </Tag>
+                </div>
               </div>
-
-              {/* Subtle Background Decoration */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-80px",
-                  right: "-60px",
-                  width: "200px",
-                  height: "200px",
-                  background:
-                    "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
-                  borderRadius: "50%",
-                  opacity: 0.05,
-                  zIndex: -1,
-                }}
-              />
-
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-60px",
-                  left: "-80px",
-                  width: "150px",
-                  height: "150px",
-                  background:
-                    "linear-gradient(135deg, #52c41a 0%, #73d13d 100%)",
-                  borderRadius: "50%",
-                  opacity: 0.05,
-                  zIndex: -1,
-                }}
-              />
             </div>
           </Col>
         </Row>
