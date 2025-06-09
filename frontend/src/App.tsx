@@ -5,6 +5,7 @@ import Products from "./components/Products";
 import Benefits from "./components/Benefits";
 import AboutUs from "./components/AboutUs";
 import HowItWorks from "./components/HowItWorks";
+import Certificates from "./components/Certificates";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import CallToAction from "./components/CallToAction";
@@ -50,6 +51,7 @@ function App() {
           <Benefits />
           <AboutUs />
           <HowItWorks />
+          <Certificates />
           <Testimonials />
           <FAQ />
           <CallToAction />
