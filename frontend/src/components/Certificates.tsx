@@ -5,7 +5,7 @@ import {
   CheckCircleOutlined,
   StarOutlined,
   GlobalOutlined,
-  ShieldCheckOutlined,
+  SecurityScanOutlined,
   LeftOutlined,
   RightOutlined,
 } from "@ant-design/icons";
@@ -39,7 +39,7 @@ const Certificates = () => {
       fullName: "Hazard Analysis Critical Control Points",
       vietnameseName: "Phân Tích Mối Nguy và Điểm Kiểm Soát Tới Hạn",
       description:
-        "Hệ thống quản lý an toàn thực phẩm HACCP đảm bảo kiểm soát ch��t lượng từ nguyên liệu đến thành phẩm",
+        "Hệ thống quản lý an toàn thực phẩm HACCP đảm bảo kiểm soát chất lượng từ nguyên liệu đến thành phẩm",
       certificateNumber: "HACCP-VN-2023-891",
       issueDate: "28/02/2023",
       expiryDate: "27/02/2026",
@@ -47,7 +47,7 @@ const Certificates = () => {
         "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=150&fit=crop",
       logo: "🛡️",
       color: "#52c41a",
-      icon: <ShieldCheckOutlined />,
+      icon: <SecurityScanOutlined />,
       verified: true,
     },
     {
