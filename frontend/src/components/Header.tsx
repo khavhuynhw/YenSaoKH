@@ -168,52 +168,97 @@ const Header = () => {
                     flexShrink: 0, // Prevent items from shrinking
                   }}
                 >
-                  <a
-                    href={item.href}
-                    style={{
-                      alignItems: "center",
-                      color: item.active
-                        ? "rgb(195, 165, 122)"
-                        : "rgba(102, 102, 102, 0.85)",
-                      cursor: "pointer",
-                      display: "inline-flex",
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "14px", // Slightly smaller font
-                      letterSpacing: "0.2px",
-                      lineHeight: "16px",
-                      paddingLeft: "8px", // Increased padding for better click area
-                      paddingRight: "8px",
-                      paddingTop: "4px",
-                      paddingBottom: "4px",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      touchAction: "manipulation",
-                      transitionDuration: "0.2s",
-                      fontWeight: item.active ? 600 : 400,
-                      whiteSpace: "nowrap", // Prevent text wrapping
-                      borderRadius: "4px", // Add subtle border radius
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!item.active) {
-                        e.currentTarget.style.color = "rgb(195, 165, 122)";
-                        e.currentTarget.style.backgroundColor =
-                          "rgba(195, 165, 122, 0.1)";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!item.active) {
-                        e.currentTarget.style.color =
-                          "rgba(102, 102, 102, 0.85)";
-                        e.currentTarget.style.backgroundColor = "transparent";
-                      }
-                    }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleMenuClick(item.href);
-                    }}
-                  >
-                    {item.label}
-                  </a>
+                  {item.type === "route" ? (
+                    <Link
+                      to={item.href}
+                      style={{
+                        alignItems: "center",
+                        color: isActiveItem(item)
+                          ? "rgb(195, 165, 122)"
+                          : "rgba(102, 102, 102, 0.85)",
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "14px", // Slightly smaller font
+                        letterSpacing: "0.2px",
+                        lineHeight: "16px",
+                        paddingLeft: "8px", // Increased padding for better click area
+                        paddingRight: "8px",
+                        paddingTop: "4px",
+                        paddingBottom: "4px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        touchAction: "manipulation",
+                        transitionDuration: "0.2s",
+                        fontWeight: isActiveItem(item) ? 600 : 400,
+                        whiteSpace: "nowrap", // Prevent text wrapping
+                        borderRadius: "4px", // Add subtle border radius
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color = "rgb(195, 165, 122)";
+                          e.currentTarget.style.backgroundColor =
+                            "rgba(195, 165, 122, 0.1)";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color =
+                            "rgba(102, 102, 102, 0.85)";
+                          e.currentTarget.style.backgroundColor = "transparent";
+                        }
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      style={{
+                        alignItems: "center",
+                        color: isActiveItem(item)
+                          ? "rgb(195, 165, 122)"
+                          : "rgba(102, 102, 102, 0.85)",
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "14px", // Slightly smaller font
+                        letterSpacing: "0.2px",
+                        lineHeight: "16px",
+                        paddingLeft: "8px", // Increased padding for better click area
+                        paddingRight: "8px",
+                        paddingTop: "4px",
+                        paddingBottom: "4px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        touchAction: "manipulation",
+                        transitionDuration: "0.2s",
+                        fontWeight: isActiveItem(item) ? 600 : 400,
+                        whiteSpace: "nowrap", // Prevent text wrapping
+                        borderRadius: "4px", // Add subtle border radius
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color = "rgb(195, 165, 122)";
+                          e.currentTarget.style.backgroundColor =
+                            "rgba(195, 165, 122, 0.1)";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActiveItem(item)) {
+                          e.currentTarget.style.color =
+                            "rgba(102, 102, 102, 0.85)";
+                          e.currentTarget.style.backgroundColor = "transparent";
+                        }
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleMenuClick(item);
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
