@@ -3,7 +3,11 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Products from "./components/Products";
 import Benefits from "./components/Benefits";
+import AboutUs from "./components/AboutUs";
+import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
+import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 
 const { Content } = Layout;
@@ -44,7 +48,11 @@ function App() {
           <Hero />
           <Products />
           <Benefits />
+          <AboutUs />
+          <HowItWorks />
           <Testimonials />
+          <FAQ />
+          <CallToAction />
         </Content>
         <Footer />
       </Layout>
