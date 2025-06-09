@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Layout, Menu, Button, Badge, Drawer } from "antd";
+import { Layout, Drawer } from "antd";
 import { ShoppingCartOutlined, MenuOutlined } from "@ant-design/icons";
 
 const { Header: AntHeader } = Layout;
@@ -8,18 +8,18 @@ const Header = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   const menuItems = [
-    { key: "home", label: "Home", href: "#home" },
-    { key: "products", label: "Products", href: "#products" },
-    { key: "benefits", label: "Benefits", href: "#benefits" },
-    { key: "about", label: "About", href: "#about" },
-    { key: "contact", label: "Contact", href: "#contact" },
+    { key: "home", label: "Trang Chủ", href: "#home", active: true },
+    { key: "about", label: "Giới thiệu", href: "#about" },
+    { key: "products", label: "Sản phẩm", href: "#products" },
+    { key: "news", label: "Tin Tức", href: "#benefits" },
+    { key: "promotions", label: "Khuyến mại", href: "#promotions" },
+    { key: "services", label: "Dịch vụ", href: "#services" },
+    { key: "handbook", label: "Cẩm nang", href: "#handbook" },
+    { key: "contact", label: "Liên hệ", href: "#contact" },
   ];
 
-  const handleMenuClick = (e: any) => {
-    const href = menuItems.find((item) => item.key === e.key)?.href;
-    if (href) {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleMenuClick = (href: string) => {
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setDrawerVisible(false);
   };
 
@@ -27,170 +27,293 @@ const Header = () => {
     <>
       <AntHeader
         style={{
-          // Glassmorphism styling with warm cream colors to match website
+          // Clean white header like Vietnamese site
           alignItems: "center",
-          backdropFilter: "blur(16px)",
-          backgroundColor: "rgba(250, 248, 243, 0.85)", // Warm cream with high opacity
-          borderRadius: "8px",
-          border: "1px solid rgba(212, 175, 55, 0.2)", // Subtle gold border
-          boxShadow:
-            "0 8px 32px rgba(212, 175, 55, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05)", // Warm shadow
           display: "flex",
-          justifyContent: "space-between",
-          left: "12px",
-          maxWidth: "1440px",
-          paddingBottom: "16px",
-          paddingLeft: "56px",
-          paddingRight: "56px",
-          paddingTop: "16px",
-          position: "fixed",
-          right: "12px",
-          top: "12px",
-          transitionDuration: "0.3s",
-          transitionProperty: "background-color, border-color",
-          width: "calc(100% - 24px)",
-          zIndex: 21,
           height: "auto",
-          lineHeight: "normal",
-          margin: "0 auto",
+          justifyContent: "space-between",
+          maxWidth: "1170px",
+          paddingLeft: "15px",
+          paddingRight: "15px",
+          width: "100%",
+          backgroundColor: "rgb(255, 255, 255)",
+          position: "fixed",
+          top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 21,
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
+          paddingTop: "12px",
+          paddingBottom: "12px",
         }}
       >
+        {/* Logo Section */}
         <div
           style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
+            lineHeight: "16px",
+            marginRight: "30px",
+            maxHeight: "100%",
+            width: "328px",
           }}
         >
-          {/* Logo */}
-          <div>
-            <h2
+          <a
+            title="PureNest - Yến sào nguyên chất cao cấp"
+            href="#home"
+            style={{
+              cursor: "pointer",
+              fontSize: "32px",
+              fontWeight: 700,
+              lineHeight: "32px",
+              textTransform: "uppercase",
+              touchAction: "manipulation",
+              textDecoration: "none",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              handleMenuClick("#home");
+            }}
+          >
+            {/* Logo Image Placeholder - You can replace with actual image */}
+            <div
               style={{
+                maxHeight: "60px",
+                maxWidth: "100%",
+                display: "flex",
+                alignItems: "center",
                 color: "#d4af37",
-                fontSize: "1.8rem",
-                fontWeight: "bold",
-                lineHeight: "1.2",
-                margin: 0,
-                marginBottom: "-4px",
+                fontSize: "28px",
+                fontWeight: 700,
               }}
             >
               PureNest
-            </h2>
-            <span
-              style={{
-                fontSize: "0.85rem",
-                fontWeight: "normal",
-                color: "#666666", // Darker text for better contrast on light background
-              }}
-            >
-              Premium Bird's Nest
-            </span>
-          </div>
+              <span
+                style={{
+                  fontSize: "12px",
+                  color: "#666",
+                  marginLeft: "8px",
+                  textTransform: "none",
+                  fontWeight: 400,
+                }}
+              >
+                Premium Bird's Nest
+              </span>
+            </div>
+          </a>
+        </div>
 
-          {/* Desktop Navigation */}
-          <nav
+        {/* Navigation Menu */}
+        <div
+          style={{
+            flexBasis: "0%",
+            flexGrow: 1,
+            marginRight: "auto",
+            maxHeight: "100%",
+          }}
+        >
+          <ul
             style={{
-              display: "none",
               alignItems: "center",
-              gap: "32px",
-              marginLeft: "80px",
-              marginRight: "80px",
-              flex: 1,
-              justifyContent: "center",
+              display: "flex",
+              flexFlow: "row wrap",
+              flexWrap: "wrap",
+              justifyContent: "flex-start",
+              position: "relative",
+              width: "100%",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+              gap: "14px",
             }}
             className="desktop-menu"
           >
             {menuItems.map((item) => (
-              <a
+              <li
                 key={item.key}
-                href={item.href}
                 style={{
-                  alignItems: "center",
-                  borderRadius: "10px",
-                  color: "#2c2c2c", // Dark text for contrast on light background
-                  cursor: "pointer",
-                  display: "flex",
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  gap: "8px",
-                  height: "100%",
-                  padding: "8px 16px",
+                  marginLeft: "7px",
+                  marginRight: "7px",
                   position: "relative",
-                  textDecoration: "none",
-                  transition: "color 0.3s ease, background-color 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#d4af37";
-                  e.currentTarget.style.backgroundColor =
-                    "rgba(212, 175, 55, 0.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#2c2c2c";
-                  e.currentTarget.style.backgroundColor = "transparent";
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document
-                    .querySelector(item.href)
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  textAlign: "left",
+                  transitionDuration: "0.3s",
+                  transitionProperty: "background-color",
                 }}
               >
-                {item.label}
-              </a>
+                <a
+                  href={item.href}
+                  style={{
+                    alignItems: "center",
+                    color: item.active
+                      ? "rgb(195, 165, 122)"
+                      : "rgba(102, 102, 102, 0.85)",
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    flexFlow: "row wrap",
+                    flexWrap: "wrap",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "15px",
+                    letterSpacing: "0.3px",
+                    lineHeight: "16px",
+                    paddingLeft: "5px",
+                    paddingRight: "5px",
+                    textAlign: "left",
+                    textDecoration: "none",
+                    touchAction: "manipulation",
+                    transitionDuration: "0.2s",
+                    fontWeight: item.active ? 600 : 400,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!item.active) {
+                      e.currentTarget.style.color = "rgb(195, 165, 122)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!item.active) {
+                      e.currentTarget.style.color = "rgba(102, 102, 102, 0.85)";
+                    }
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleMenuClick(item.href);
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
             ))}
-          </nav>
+          </ul>
+        </div>
 
-          {/* Header Actions */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            {/* Cart Button */}
-            <Badge count={0} showZero>
-              <Button
-                type="primary"
-                shape="round"
-                icon={<ShoppingCartOutlined />}
-                size="large"
+        {/* Cart Button */}
+        <div
+          style={{
+            marginLeft: "auto",
+            maxHeight: "100%",
+          }}
+        >
+          <ul
+            style={{
+              alignItems: "center",
+              display: "flex",
+              flexFlow: "row wrap",
+              flexWrap: "wrap",
+              justifyContent: "flex-end",
+              position: "relative",
+              width: "100%",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            <li
+              style={{
+                marginLeft: "7px",
+                position: "relative",
+                textAlign: "left",
+                transitionDuration: "0.3s",
+                transitionProperty: "background-color",
+              }}
+            >
+              <div
                 style={{
-                  background:
-                    "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
-                  border: "none",
-                  height: "40px",
-                  padding: "0 16px",
-                  display: "flex",
-                  alignItems: "center",
-                  color: "#ffffff",
-                  fontWeight: 600,
-                  boxShadow: "0 4px 12px rgba(212, 175, 55, 0.3)",
+                  display: "inline-block",
+                  textAlign: "left",
                 }}
               >
-                Cart
-              </Button>
-            </Badge>
+                <a
+                  title="Giỏ hàng"
+                  href="#cart"
+                  style={{
+                    backgroundColor: "rgb(195, 165, 122)",
+                    borderRadius: "999px",
+                    border: "0.8px solid rgba(0, 0, 0, 0.05)",
+                    color: "rgb(255, 255, 255)",
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    minHeight: "40px",
+                    minWidth: "40px",
+                    padding: "8px",
+                    position: "relative",
+                    textAlign: "center",
+                    textDecoration: "none",
+                    touchAction: "manipulation",
+                    transition: "all 0.3s ease",
+                    verticalAlign: "middle",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor =
+                      "rgb(175, 145, 102)";
+                    e.currentTarget.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor =
+                      "rgb(195, 165, 122)";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Handle cart click
+                  }}
+                >
+                  <ShoppingCartOutlined style={{ fontSize: "18px" }} />
+                  {/* Cart count badge */}
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "-8px",
+                      right: "-8px",
+                      backgroundColor: "#ff4d4f",
+                      borderRadius: "50%",
+                      color: "white",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      minWidth: "18px",
+                      height: "18px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: "2px solid white",
+                    }}
+                  >
+                    0
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-            {/* Mobile Menu Toggle */}
-            <Button
-              type="text"
-              icon={<MenuOutlined />}
-              size="large"
-              className="mobile-menu-btn"
-              style={{
-                color: "#2c2c2c", // Dark icon for contrast
-                border: "none",
-                backgroundColor: "transparent",
-              }}
-              onClick={() => setDrawerVisible(true)}
-            />
-          </div>
+        {/* Mobile Menu Button */}
+        <div
+          style={{
+            display: "none",
+            marginLeft: "auto",
+            maxHeight: "100%",
+          }}
+          className="mobile-menu-section"
+        >
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              padding: "12px",
+              cursor: "pointer",
+            }}
+            onClick={() => setDrawerVisible(true)}
+          >
+            <MenuOutlined style={{ fontSize: "18px", color: "#666" }} />
+          </button>
         </div>
 
         {/* Mobile Drawer */}
         <Drawer
           title={
             <span style={{ color: "#d4af37", fontWeight: "bold" }}>
-              PureNest Navigation
+              PureNest Menu
             </span>
           }
           placement="right"
@@ -200,50 +323,56 @@ const Header = () => {
           styles={{
             body: {
               padding: "24px 0",
-              background: "linear-gradient(135deg, #faf8f3 0%, #ffffff 100%)",
+              background: "#ffffff",
             },
           }}
         >
-          <Menu
-            mode="vertical"
-            items={menuItems}
-            onClick={handleMenuClick}
-            style={{
-              border: "none",
-              fontSize: "16px",
-              background: "transparent",
-            }}
-          />
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+          >
+            {menuItems.map((item) => (
+              <a
+                key={item.key}
+                href={item.href}
+                style={{
+                  padding: "12px 24px",
+                  color: item.active
+                    ? "rgb(195, 165, 122)"
+                    : "rgba(102, 102, 102, 0.85)",
+                  textDecoration: "none",
+                  fontSize: "16px",
+                  fontWeight: item.active ? 600 : 400,
+                  borderBottom: "1px solid #f0f0f0",
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleMenuClick(item.href);
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </Drawer>
       </AntHeader>
 
       <style jsx>{`
         .desktop-menu {
-          display: none;
+          display: flex;
         }
-        @media (min-width: 768px) {
+
+        @media (max-width: 768px) {
           .desktop-menu {
-            display: flex !important;
-          }
-          .mobile-menu-btn {
             display: none !important;
           }
+          .mobile-menu-section {
+            display: block !important;
+          }
         }
 
-        /* Enhanced glassmorphism on scroll */
-        .ant-layout-header:hover {
-          background-color: rgba(250, 248, 243, 0.95) !important;
-          border-color: rgba(212, 175, 55, 0.3) !important;
-        }
-
-        /* Add some breathing room for the transparent header */
-        @media (max-width: 768px) {
-          .ant-layout-header {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-            left: 8px !important;
-            right: 8px !important;
-            width: calc(100% - 16px) !important;
+        @media (min-width: 769px) {
+          .mobile-menu-section {
+            display: none !important;
           }
         }
       `}</style>
