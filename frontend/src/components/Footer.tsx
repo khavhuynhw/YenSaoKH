@@ -1,150 +1,197 @@
+import { Layout, Row, Col, Typography, Button, Space, Divider } from "antd";
+import {
+  FacebookOutlined,
+  InstagramOutlined,
+  TwitterOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  EnvironmentOutlined,
+} from "@ant-design/icons";
+
+const { Footer: AntFooter } = Layout;
+const { Title, Text, Link } = Typography;
+
 const Footer = () => {
   return (
-    <footer className="bg-primary-dark text-white py-16">
+    <AntFooter
+      style={{
+        background: "#1a1a2e",
+        color: "#ffffff",
+        padding: "64px 0 20px",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-5">
         {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <Row gutter={[48, 48]} className="mb-12">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <Col xs={24} md={12} lg={8}>
             <div className="mb-8">
-              <h3 className="text-primary-gold text-2xl font-bold mb-4">
+              <Title
+                level={3}
+                style={{
+                  color: "#d4af37",
+                  fontSize: "1.5rem",
+                  marginBottom: "16px",
+                }}
+              >
                 PureNest
-              </h3>
-              <p className="text-white text-opacity-70 mb-8">
+              </Title>
+              <Text
+                style={{
+                  color: "rgba(255, 255, 255, 0.7)",
+                  fontSize: "16px",
+                  display: "block",
+                  marginBottom: "32px",
+                }}
+              >
                 Premium Bird's Nest for your health and beauty
-              </p>
+              </Text>
             </div>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="text-white border border-white border-opacity-20 px-4 py-2 rounded-3xl transition-all duration-300 hover:bg-primary-gold hover:border-primary-gold"
+            <Space size="middle">
+              <Button
+                type="text"
+                icon={<FacebookOutlined />}
+                style={{
+                  color: "#ffffff",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  borderRadius: "25px",
+                }}
               >
                 Facebook
-              </a>
-              <a
-                href="#"
-                className="text-white border border-white border-opacity-20 px-4 py-2 rounded-3xl transition-all duration-300 hover:bg-primary-gold hover:border-primary-gold"
+              </Button>
+              <Button
+                type="text"
+                icon={<InstagramOutlined />}
+                style={{
+                  color: "#ffffff",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  borderRadius: "25px",
+                }}
               >
                 Instagram
-              </a>
-              <a
-                href="#"
-                className="text-white border border-white border-opacity-20 px-4 py-2 rounded-3xl transition-all duration-300 hover:bg-primary-gold hover:border-primary-gold"
+              </Button>
+              <Button
+                type="text"
+                icon={<TwitterOutlined />}
+                style={{
+                  color: "#ffffff",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  borderRadius: "25px",
+                }}
               >
                 Twitter
-              </a>
-            </div>
-          </div>
+              </Button>
+            </Space>
+          </Col>
 
           {/* Products */}
-          <div>
-            <h4 className="text-primary-gold mb-6 text-lg">Products</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Raw Bird's Nest
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Ready-to-Drink
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Gift Sets
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Accessories
-                </a>
-              </li>
-            </ul>
-          </div>
+          <Col xs={24} sm={12} lg={4}>
+            <Title
+              level={4}
+              style={{
+                color: "#d4af37",
+                fontSize: "1.1rem",
+                marginBottom: "24px",
+              }}
+            >
+              Products
+            </Title>
+            <Space direction="vertical" size="small">
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Raw Bird's Nest
+              </Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Ready-to-Drink
+              </Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Gift Sets
+              </Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Accessories
+              </Link>
+            </Space>
+          </Col>
 
           {/* Support */}
-          <div>
-            <h4 className="text-primary-gold mb-6 text-lg">Support</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Shipping
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Returns
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-                >
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <Col xs={24} sm={12} lg={4}>
+            <Title
+              level={4}
+              style={{
+                color: "#d4af37",
+                fontSize: "1.1rem",
+                marginBottom: "24px",
+              }}
+            >
+              Support
+            </Title>
+            <Space direction="vertical" size="small">
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>FAQ</Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Shipping
+              </Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>Returns</Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Contact Us
+              </Link>
+            </Space>
+          </Col>
 
-        {/* Contact Info */}
-        <div className="mb-12">
-          <h4 className="text-primary-gold mb-6 text-lg">Contact</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white text-opacity-70">
-            <p>📧 info@purenest.com</p>
-            <p>📞 +1 (555) 123-4567</p>
-            <p>📍 123 Wellness St, Health City</p>
-          </div>
-        </div>
+          {/* Contact */}
+          <Col xs={24} lg={8}>
+            <Title
+              level={4}
+              style={{
+                color: "#d4af37",
+                fontSize: "1.1rem",
+                marginBottom: "24px",
+              }}
+            >
+              Contact
+            </Title>
+            <Space direction="vertical" size="middle">
+              <div className="flex items-center gap-3">
+                <MailOutlined style={{ color: "#d4af37" }} />
+                <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                  info@purenest.com
+                </Text>
+              </div>
+              <div className="flex items-center gap-3">
+                <PhoneOutlined style={{ color: "#d4af37" }} />
+                <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                  +1 (555) 123-4567
+                </Text>
+              </div>
+              <div className="flex items-center gap-3">
+                <EnvironmentOutlined style={{ color: "#d4af37" }} />
+                <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                  123 Wellness St, Health City
+                </Text>
+              </div>
+            </Space>
+          </Col>
+        </Row>
 
         {/* Footer Bottom */}
-        <div className="border-t border-white border-opacity-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>&copy; 2024 PureNest. All rights reserved.</p>
-          <div className="flex gap-8">
-            <a
-              href="#"
-              className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-white text-opacity-70 transition-colors duration-300 hover:text-primary-gold"
-            >
-              Terms of Service
-            </a>
-          </div>
-        </div>
+        <Divider style={{ borderColor: "rgba(255, 255, 255, 0.1)" }} />
+        <Row justify="space-between" align="middle" gutter={[16, 16]}>
+          <Col xs={24} md={12}>
+            <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+              &copy; 2024 PureNest. All rights reserved.
+            </Text>
+          </Col>
+          <Col xs={24} md={12}>
+            <Space size="large" className="justify-end w-full">
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Privacy Policy
+              </Link>
+              <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                Terms of Service
+              </Link>
+            </Space>
+          </Col>
+        </Row>
       </div>
-    </footer>
+    </AntFooter>
   );
 };
 

@@ -1,3 +1,7 @@
+import { Card, Button, Typography, Badge } from "antd";
+
+const { Title, Paragraph, Text } = Typography;
+
 interface ProductCardProps {
   name: string;
   description: string;
@@ -18,66 +22,98 @@ const ProductCard = ({
   placeholder,
 }: ProductCardProps) => {
   return (
-    <div
-      className={`card-hover rounded-2xl shadow-lg overflow-hidden relative ${
-        featured
-          ? "bg-gradient-to-br from-primary-blue to-accent-blue text-white"
-          : "bg-white"
-      }`}
+    <Badge.Ribbon
+      text={badge}
+      color="#d4af37"
+      style={{ display: badge ? "block" : "none" }}
     >
-      {/* Badge */}
-      {badge && (
-        <div className="absolute top-4 right-4 bg-primary-gold text-white px-4 py-2 rounded-2xl text-sm font-semibold z-10">
-          {badge}
-        </div>
-      )}
-
-      {/* Product Image Placeholder */}
-      <div
-        className={`h-64 flex items-center justify-center font-semibold text-lg ${
-          featured
-            ? "bg-white bg-opacity-10 text-white"
-            : "bg-accent-cream text-text-light"
-        }`}
+      <Card
+        hoverable
+        className="h-full"
+        style={{
+          background: featured
+            ? "linear-gradient(135deg, #16213e 0%, #0f3460 100%)"
+            : "#ffffff",
+          color: featured ? "#ffffff" : "#2c2c2c",
+          border: "none",
+          borderRadius: "20px",
+          overflow: "hidden",
+        }}
+        cover={
+          <div
+            className="h-64 flex items-center justify-center font-semibold text-lg"
+            style={{
+              background: featured ? "rgba(255, 255, 255, 0.1)" : "#faf8f3",
+              color: featured ? "#ffffff" : "#666666",
+            }}
+          >
+            <div className="p-8 text-center">{placeholder}</div>
+          </div>
+        }
+        bodyStyle={{ padding: "32px" }}
       >
-        <div className="p-8 text-center">{placeholder}</div>
-      </div>
+        <Title
+          level={3}
+          style={{
+            color: featured ? "#ffffff" : "#2c2c2c",
+            marginBottom: "12px",
+            fontSize: "1.3rem",
+          }}
+        >
+          {name}
+        </Title>
 
-      {/* Product Info */}
-      <div className="p-8">
-        <h3 className="text-xl font-bold mb-3">{name}</h3>
-        <p
-          className={`mb-6 leading-relaxed ${
-            featured ? "text-white text-opacity-80" : "text-text-light"
-          }`}
+        <Paragraph
+          style={{
+            color: featured ? "rgba(255, 255, 255, 0.8)" : "#666666",
+            marginBottom: "24px",
+            lineHeight: "1.6",
+          }}
         >
           {description}
-        </p>
+        </Paragraph>
 
         {/* Price */}
         <div className="flex items-baseline gap-2 mb-6">
-          <span className="text-3xl font-bold text-primary-gold">{price}</span>
-          <span
-            className={
-              featured ? "text-white text-opacity-70" : "text-text-light"
-            }
+          <Text
+            strong
+            style={{
+              fontSize: "1.8rem",
+              color: "#d4af37",
+            }}
+          >
+            {price}
+          </Text>
+          <Text
+            style={{
+              color: featured ? "rgba(255, 255, 255, 0.7)" : "#666666",
+            }}
           >
             {priceUnit}
-          </span>
+          </Text>
         </div>
 
         {/* Add to Cart Button */}
-        <button
-          className={`w-full py-4 rounded-full text-base font-semibold transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg ${
-            featured
-              ? "bg-white text-primary-blue"
-              : "bg-gradient-to-r from-primary-gold to-accent-light-gold text-white"
-          }`}
+        <Button
+          type={featured ? "default" : "primary"}
+          size="large"
+          block
+          style={{
+            height: "48px",
+            fontSize: "16px",
+            fontWeight: 600,
+            background: featured
+              ? "#ffffff"
+              : "linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%)",
+            color: featured ? "#16213e" : "#ffffff",
+            border: "none",
+            borderRadius: "25px",
+          }}
         >
           Add to Cart
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Card>
+    </Badge.Ribbon>
   );
 };
 

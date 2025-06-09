@@ -1,5 +1,9 @@
+import { Card, Rate, Typography } from "antd";
+
+const { Paragraph, Text } = Typography;
+
 interface TestimonialCardProps {
-  stars: string;
+  stars: number;
   text: string;
   author: string;
   role: string;
@@ -12,16 +16,60 @@ const TestimonialCard = ({
   role,
 }: TestimonialCardProps) => {
   return (
-    <div className="bg-accent-cream p-10 rounded-2xl card-hover">
-      <div className="text-xl mb-6">{stars}</div>
-      <p className="text-lg leading-relaxed text-text-dark mb-6 italic">
+    <Card
+      hoverable
+      className="h-full"
+      style={{
+        background: "#faf8f3",
+        border: "none",
+        borderRadius: "20px",
+      }}
+      bodyStyle={{ padding: "40px" }}
+    >
+      <Rate
+        disabled
+        defaultValue={stars}
+        style={{
+          fontSize: "18px",
+          marginBottom: "24px",
+          color: "#d4af37",
+        }}
+      />
+
+      <Paragraph
+        style={{
+          fontSize: "1.1rem",
+          lineHeight: "1.7",
+          color: "#2c2c2c",
+          marginBottom: "24px",
+          fontStyle: "italic",
+        }}
+      >
         "{text}"
-      </p>
-      <div className="testimonial-author">
-        <strong className="text-primary-dark font-bold">{author}</strong>
-        <span className="block text-text-light text-sm mt-1">{role}</span>
+      </Paragraph>
+
+      <div>
+        <Text
+          strong
+          style={{
+            color: "#1a1a2e",
+            fontSize: "16px",
+          }}
+        >
+          {author}
+        </Text>
+        <Text
+          style={{
+            color: "#666666",
+            fontSize: "14px",
+            display: "block",
+            marginTop: "4px",
+          }}
+        >
+          {role}
+        </Text>
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -1,4 +1,7 @@
+import { Row, Col, Typography } from "antd";
 import BenefitCard from "./BenefitCard";
+
+const { Title, Paragraph } = Typography;
 
 const Benefits = () => {
   const benefits = [
@@ -27,28 +30,45 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="py-24 bg-accent-cream">
+    <section id="benefits" className="py-24" style={{ background: "#faf8f3" }}>
       <div className="max-w-6xl mx-auto px-5">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="section-title">Health Benefits</h2>
-          <p className="section-subtitle">
+          <Title
+            level={2}
+            style={{
+              fontSize: "2.5rem",
+              color: "#1a1a2e",
+              marginBottom: "16px",
+            }}
+          >
+            Health Benefits
+          </Title>
+          <Paragraph
+            style={{
+              fontSize: "1.2rem",
+              color: "#666666",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
             Scientifically proven benefits backed by centuries of traditional
             use
-          </p>
+          </Paragraph>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <Row gutter={[32, 32]}>
           {benefits.map((benefit, index) => (
-            <BenefitCard
-              key={index}
-              icon={benefit.icon}
-              title={benefit.title}
-              description={benefit.description}
-            />
+            <Col xs={24} sm={12} lg={6} key={index}>
+              <BenefitCard
+                icon={benefit.icon}
+                title={benefit.title}
+                description={benefit.description}
+              />
+            </Col>
           ))}
-        </div>
+        </Row>
       </div>
     </section>
   );

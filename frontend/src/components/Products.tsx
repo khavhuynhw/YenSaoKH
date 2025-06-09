@@ -1,4 +1,7 @@
+import { Row, Col, Typography } from "antd";
 import ProductCard from "./ProductCard";
+
+const { Title, Paragraph } = Typography;
 
 const Products = () => {
   const products = [
@@ -33,28 +36,45 @@ const Products = () => {
       <div className="max-w-6xl mx-auto px-5">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="section-title">Our Premium Collection</h2>
-          <p className="section-subtitle">
+          <Title
+            level={2}
+            style={{
+              fontSize: "2.5rem",
+              color: "#1a1a2e",
+              marginBottom: "16px",
+            }}
+          >
+            Our Premium Collection
+          </Title>
+          <Paragraph
+            style={{
+              fontSize: "1.2rem",
+              color: "#666666",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
             Carefully sourced and processed to preserve maximum nutritional
             value
-          </p>
+          </Paragraph>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <Row gutter={[40, 40]}>
           {products.map((product, index) => (
-            <ProductCard
-              key={index}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-              priceUnit={product.priceUnit}
-              featured={product.featured}
-              badge={product.badge}
-              placeholder={product.placeholder}
-            />
+            <Col xs={24} md={12} lg={8} key={index}>
+              <ProductCard
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                priceUnit={product.priceUnit}
+                featured={product.featured}
+                badge={product.badge}
+                placeholder={product.placeholder}
+              />
+            </Col>
           ))}
-        </div>
+        </Row>
       </div>
     </section>
   );
