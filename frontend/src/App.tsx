@@ -38,7 +38,7 @@ function App() {
 
   return (
     <ConfigProvider theme={theme}>
-      <Layout className="min-h-screen">
+      <Layout style={{ minHeight: "100vh" }}>
         <Header />
         <Content>
           <Hero />

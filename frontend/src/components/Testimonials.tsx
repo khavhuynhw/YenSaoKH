@@ -26,10 +26,10 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-5">
+    <section style={{ padding: "96px 0", background: "#ffffff" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <Title
             level={2}
             style={{

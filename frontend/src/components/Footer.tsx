@@ -20,12 +20,12 @@ const Footer = () => {
         padding: "64px 0 20px",
       }}
     >
-      <div className="max-w-6xl mx-auto px-5">
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
         {/* Footer Content */}
-        <Row gutter={[48, 48]} className="mb-12">
+        <Row gutter={[48, 48]} style={{ marginBottom: "48px" }}>
           {/* Company Info */}
           <Col xs={24} md={12} lg={8}>
-            <div className="mb-8">
+            <div style={{ marginBottom: "32px" }}>
               <Title
                 level={3}
                 style={{
@@ -149,19 +149,25 @@ const Footer = () => {
               Contact
             </Title>
             <Space direction="vertical" size="middle">
-              <div className="flex items-center gap-3">
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
                 <MailOutlined style={{ color: "#d4af37" }} />
                 <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                   info@purenest.com
                 </Text>
               </div>
-              <div className="flex items-center gap-3">
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
                 <PhoneOutlined style={{ color: "#d4af37" }} />
                 <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                   +1 (555) 123-4567
                 </Text>
               </div>
-              <div className="flex items-center gap-3">
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
                 <EnvironmentOutlined style={{ color: "#d4af37" }} />
                 <Text style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                   123 Wellness St, Health City
@@ -180,14 +186,20 @@ const Footer = () => {
             </Text>
           </Col>
           <Col xs={24} md={12}>
-            <Space size="large" className="justify-end w-full">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "32px",
+              }}
+            >
               <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                 Privacy Policy
               </Link>
               <Link style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                 Terms of Service
               </Link>
-            </Space>
+            </div>
           </Col>
         </Row>
       </div>

@@ -18,11 +18,11 @@ const TestimonialCard = ({
   return (
     <Card
       hoverable
-      className="h-full"
       style={{
         background: "#faf8f3",
         border: "none",
         borderRadius: "20px",
+        height: "100%",
       }}
       bodyStyle={{ padding: "40px" }}
     >

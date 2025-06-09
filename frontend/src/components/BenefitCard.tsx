@@ -12,15 +12,22 @@ const BenefitCard = ({ icon, title, description }: BenefitCardProps) => {
   return (
     <Card
       hoverable
-      className="text-center h-full"
       style={{
         background: "#ffffff",
         border: "none",
         borderRadius: "20px",
+        textAlign: "center",
+        height: "100%",
       }}
       bodyStyle={{ padding: "40px" }}
     >
-      <div className="mb-6" style={{ fontSize: "3rem", display: "block" }}>
+      <div
+        style={{
+          fontSize: "3rem",
+          marginBottom: "24px",
+          display: "block",
+        }}
+      >
         {icon}
       </div>
 

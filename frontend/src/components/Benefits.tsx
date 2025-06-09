@@ -30,10 +30,16 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="py-24" style={{ background: "#faf8f3" }}>
-      <div className="max-w-6xl mx-auto px-5">
+    <section
+      id="benefits"
+      style={{
+        padding: "96px 0",
+        background: "#faf8f3",
+      }}
+    >
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <Title
             level={2}
             style={{
