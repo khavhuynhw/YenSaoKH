@@ -317,7 +317,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Right Column - Product Visual */}
+              {/* Right Column - Product Image with Floating Tags */}
               <div
                 style={{
                   flex: "1",
@@ -331,11 +331,11 @@ const Hero = () => {
                 <div
                   style={{
                     position: "relative",
-                    width: "450px",
+                    width: "400px",
                     height: "400px",
                   }}
                 >
-                  {/* Main Bowl Container */}
+                  {/* Main Product Image Container */}
                   <div
                     style={{
                       position: "relative",
@@ -346,53 +346,48 @@ const Hero = () => {
                       justifyContent: "center",
                     }}
                   >
-                    {/* Large White Oval Bowl */}
+                    {/* Product Image */}
                     <div
                       style={{
-                        width: "380px",
-                        height: "280px",
-                        background:
-                          "linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%)",
-                        borderRadius: "50%",
-                        boxShadow:
-                          "0 30px 100px rgba(0, 0, 0, 0.15), inset 0 -10px 30px rgba(0,0,0,0.05)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        width: "350px",
+                        height: "350px",
+                        borderRadius: "20px",
+                        overflow: "hidden",
+                        boxShadow: "0 30px 100px rgba(0, 0, 0, 0.15)",
                         position: "relative",
-                        transform:
-                          "perspective(800px) rotateX(12deg) rotateY(-5deg)",
-                        border: "1px solid rgba(255,255,255,0.8)",
+                        background: "white",
                       }}
                     >
-                      {/* Golden Ring - Bird's Nest Product */}
-                      <div
+                      {/* Replace this div with your actual image */}
+                      <img
+                        src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                        alt="Premium Bird's Nest Product"
                         style={{
-                          width: "150px",
-                          height: "150px",
-                          background:
-                            "linear-gradient(135deg, #d4af37 0%, #c9a876 50%, #d4af37 100%)",
-                          borderRadius: "50%",
-                          boxShadow:
-                            "0 20px 50px rgba(212, 175, 55, 0.4), inset 0 5px 15px rgba(255,255,255,0.3)",
-                          border: "3px solid rgba(255,255,255,0.2)",
-                          position: "relative",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          borderRadius: "20px",
                         }}
-                      >
-                        {/* Inner highlight */}
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "15px",
-                            left: "15px",
-                            width: "60px",
-                            height: "60px",
-                            background: "rgba(255,255,255,0.3)",
-                            borderRadius: "50%",
-                            filter: "blur(10px)",
-                          }}
-                        />
-                      </div>
+                        onError={(e) => {
+                          // Fallback to a placeholder if image fails to load
+                          e.currentTarget.style.display = "none";
+                          e.currentTarget.parentElement!.innerHTML = `
+                            <div style="
+                              width: 100%;
+                              height: 100%;
+                              background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              font-size: 1.2rem;
+                              color: #666;
+                              border-radius: 20px;
+                            ">
+                              Premium Bird's Nest<br/>Product Image
+                            </div>
+                          `;
+                        }}
+                      />
                     </div>
 
                     {/* Pulsing Glow Effect */}
@@ -412,24 +407,24 @@ const Hero = () => {
                     />
                   </div>
 
-                  {/* Floating Benefit Tags */}
+                  {/* Floating Benefit Tags - Positioned Closer to Image */}
                   <div
                     style={{
                       position: "absolute",
-                      top: "-60px",
-                      left: "-120px",
-                      right: "-40px",
-                      bottom: "-60px",
+                      top: "-30px", // Moved closer
+                      left: "-50px", // Moved closer
+                      right: "-30px", // Moved closer
+                      bottom: "-30px", // Moved closer
                       pointerEvents: "none",
                     }}
                   >
-                    {/* Tăng Collagen */}
+                    {/* Tăng Collagen - Top Left */}
                     <div
                       className="float1"
                       style={{
                         position: "absolute",
-                        top: "60px",
-                        left: "-100px",
+                        top: "40px", // Closer to image
+                        left: "-30px", // Closer to image
                         padding: "10px 18px",
                         fontSize: "13px",
                         fontWeight: 500,
@@ -441,18 +436,19 @@ const Hero = () => {
                         whiteSpace: "nowrap",
                         zIndex: 10,
                         backdropFilter: "blur(10px)",
+                        border: "1px solid rgba(212, 175, 55, 0.2)",
                       }}
                     >
                       Tăng Collagen
                     </div>
 
-                    {/* Chống Lão Hóa */}
+                    {/* Chống Lão Hóa - Top Right */}
                     <div
                       className="float2"
                       style={{
                         position: "absolute",
-                        top: "40%",
-                        right: "-60px",
+                        top: "80px", // Closer to image
+                        right: "-25px", // Closer to image
                         padding: "10px 18px",
                         fontSize: "13px",
                         fontWeight: 500,
@@ -464,18 +460,19 @@ const Hero = () => {
                         whiteSpace: "nowrap",
                         zIndex: 10,
                         backdropFilter: "blur(10px)",
+                        border: "1px solid rgba(24, 144, 255, 0.2)",
                       }}
                     >
                       Chống Lão Hóa
                     </div>
 
-                    {/* Hỗ Trợ Miễn Dịch */}
+                    {/* Hỗ Trợ Miễn Dịch - Bottom Left */}
                     <div
                       className="float3"
                       style={{
                         position: "absolute",
-                        bottom: "80px",
-                        left: "-70px",
+                        bottom: "40px", // Closer to image
+                        left: "-35px", // Closer to image
                         padding: "10px 18px",
                         fontSize: "13px",
                         fontWeight: 500,
@@ -487,9 +484,34 @@ const Hero = () => {
                         whiteSpace: "nowrap",
                         zIndex: 10,
                         backdropFilter: "blur(10px)",
+                        border: "1px solid rgba(82, 196, 26, 0.2)",
                       }}
                     >
                       Hỗ Trợ Miễn Dịch
+                    </div>
+
+                    {/* Tăng Năng Lượng - Bottom Right */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "80px", // Closer to image
+                        right: "-20px", // Closer to image
+                        padding: "10px 18px",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        borderRadius: "25px",
+                        border: "none",
+                        background: "white",
+                        color: "#722ed1",
+                        boxShadow: "0 8px 25px rgba(0,0,0,0.12)",
+                        whiteSpace: "nowrap",
+                        zIndex: 10,
+                        backdropFilter: "blur(10px)",
+                        border: "1px solid rgba(114, 46, 209, 0.2)",
+                        animation: "float1 6s ease-in-out infinite reverse",
+                      }}
+                    >
+                      Tăng Năng Lượng
                     </div>
                   </div>
                 </div>
