@@ -14,12 +14,7 @@ const Header = () => {
     { key: "about", label: "Giới thiệu", href: "#about", type: "scroll" },
     { key: "products", label: "Sản phẩm", href: "/san-pham", type: "route" },
     { key: "news", label: "Tin Tức", href: "#benefits", type: "scroll" },
-    {
-      key: "promotions",
-      label: "Khuyến mại",
-      href: "#promotions",
-      type: "scroll",
-    },
+    { key: "promotions", label: "Khuyến mại", href: "#promotions", type: "scroll" },
     { key: "services", label: "Dịch vụ", href: "#services", type: "scroll" },
     { key: "handbook", label: "Cẩm nang", href: "#handbook", type: "scroll" },
     { key: "contact", label: "Liên hệ", href: "#contact", type: "scroll" },
@@ -29,9 +24,7 @@ const Header = () => {
     if (item.type === "scroll") {
       // For scroll navigation, only work on homepage
       if (location.pathname === "/") {
-        document
-          .querySelector(item.href)
-          ?.scrollIntoView({ behavior: "smooth" });
+        document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
       }
     }
     setDrawerVisible(false);
@@ -91,9 +84,9 @@ const Header = () => {
               flexShrink: 0, // Prevent logo from shrinking
             }}
           >
-            <a
+            <Link
+              to="/"
               title="PureNest - Yến sào nguyên chất cao cấp"
-              href="#home"
               style={{
                 cursor: "pointer",
                 fontSize: "32px",
@@ -102,10 +95,6 @@ const Header = () => {
                 textTransform: "uppercase",
                 touchAction: "manipulation",
                 textDecoration: "none",
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleMenuClick("#home");
               }}
             >
               <div
