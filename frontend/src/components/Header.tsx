@@ -385,28 +385,48 @@ const Header = () => {
           <div
             style={{ display: "flex", flexDirection: "column", gap: "16px" }}
           >
-            {menuItems.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                style={{
-                  padding: "12px 24px",
-                  color: item.active
-                    ? "rgb(195, 165, 122)"
-                    : "rgba(102, 102, 102, 0.85)",
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  fontWeight: item.active ? 600 : 400,
-                  borderBottom: "1px solid #f0f0f0",
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleMenuClick(item.href);
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
+            {menuItems.map((item) =>
+              item.type === "route" ? (
+                <Link
+                  key={item.key}
+                  to={item.href}
+                  style={{
+                    padding: "12px 24px",
+                    color: isActiveItem(item)
+                      ? "rgb(195, 165, 122)"
+                      : "rgba(102, 102, 102, 0.85)",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                    fontWeight: isActiveItem(item) ? 600 : 400,
+                    borderBottom: "1px solid #f0f0f0",
+                  }}
+                  onClick={() => setDrawerVisible(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  style={{
+                    padding: "12px 24px",
+                    color: isActiveItem(item)
+                      ? "rgb(195, 165, 122)"
+                      : "rgba(102, 102, 102, 0.85)",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                    fontWeight: isActiveItem(item) ? 600 : 400,
+                    borderBottom: "1px solid #f0f0f0",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleMenuClick(item);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ),
+            )}
           </div>
         </Drawer>
       </AntHeader>
